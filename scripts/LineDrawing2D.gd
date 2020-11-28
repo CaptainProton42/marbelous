@@ -5,6 +5,7 @@ signal drawing_changed
 signal circle_created
 signal triangle_created
 signal quad_created
+signal shape_failed
 
 var _current_drawing : Drawing = null
 
@@ -57,6 +58,7 @@ func _on_shape_completed(start_point : int):
 
 func _on_shape_failed():
 	_exit_draw_mode()
+	emit_signal("shape_failed")
 		
 func _enter_draw_mode():
 	_pen_down = true

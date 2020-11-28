@@ -13,6 +13,7 @@ func revive() -> void:
 	_enter_state(State.ALIVE)
 
 func _ready() -> void:
+	connect("body_entered", self, "_on_body_entered")
 	_enter_state(_state)
 
 func _enter_state(p_state : int) -> void:
@@ -41,3 +42,7 @@ func _integrate_forces(state : Physics2DDirectBodyState):
 			apply_central_impulse(50.0 * (collider.physics_material_override.bounce - 1.0)*bounce_dir)
 
 	state.integrate_forces()
+
+func _on_body_entered(body) -> void:
+	if body.get_class() == "SoundShape":
+		body.emit_sound()

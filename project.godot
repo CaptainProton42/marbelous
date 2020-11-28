@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "StaticBody2D",
-"class": "BaseShape",
-"language": "GDScript",
-"path": "res://scripts/shapes/BaseShape.gd"
-}, {
 "base": "Resource",
 "class": "Drawing",
 "language": "GDScript",
@@ -23,11 +18,16 @@ _global_script_classes=[ {
 "class": "LineDrawing2D",
 "language": "GDScript",
 "path": "res://scripts/LineDrawing2D.gd"
+}, {
+"base": "StaticBody2D",
+"class": "SoundShape",
+"language": "GDScript",
+"path": "res://scripts/classes/SoundShape.gd"
 } ]
 _global_script_class_icons={
-"BaseShape": "",
 "Drawing": "",
-"LineDrawing2D": ""
+"LineDrawing2D": "",
+"SoundShape": ""
 }
 
 [application]
