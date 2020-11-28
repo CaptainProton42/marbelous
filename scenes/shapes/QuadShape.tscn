@@ -12,6 +12,7 @@ script = ExtResource( 1 )
 audio_stream = ExtResource( 2 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0, 0.541176, 1, 1 )
 polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
 
 [node name="Collision" type="CollisionPolygon2D" parent="."]
