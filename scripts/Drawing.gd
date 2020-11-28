@@ -65,7 +65,7 @@ func get_com(start_index : int = 0) -> Vector2:
 
 func get_corners() -> PoolVector2Array:
 	# Rolling sum of last few angles
-	for k in range(_points.size()):
+	for k in range(_points.size() - 1): # exclude the last point since it is artificially inserted and we will place the corner ther manually
 		var angle_sum : float = 0.0
 		var back_distance : float = 0.0
 		var i = k
