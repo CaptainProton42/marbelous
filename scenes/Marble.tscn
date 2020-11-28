@@ -9,7 +9,7 @@ radius = 12.0599
 
 [node name="Marble" type="RigidBody2D"]
 collision_layer = 2
-gravity_scale = 0.5
+gravity_scale = 15.0
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 2 )

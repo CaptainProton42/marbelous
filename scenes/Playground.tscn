@@ -8,8 +8,8 @@
 
 [node name="MarbleSpawner" parent="." instance=ExtResource( 3 )]
 position = Vector2( 116.736, 72.96 )
-max_marbles_alive = 3
-start_velocity = Vector2( 100, 0 )
+max_marbles_alive = 20
+start_velocity = Vector2( 500, 0 )
 min_time_between_spawns = 3.0
 
 [node name="ShapeSpawner" type="Node2D" parent="."]
