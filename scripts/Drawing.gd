@@ -84,7 +84,6 @@ func get_corners() -> PoolVector2Array:
 
 	_corners.append(_points[_points.size() - 1])
 
-	print("found", _corners.size(), " corners")
 	return _corners
 
 func append_point(pt : Vector2):
