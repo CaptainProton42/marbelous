@@ -60,6 +60,3 @@ func _physics_process(_delta : float) -> void:
 		linear_velocity = get_parent().start_velocity
 		global_transform.origin = get_parent().global_transform.origin
 		_enter_state(State.ALIVE)
-
-	if position.y > 500 and _state == State.ALIVE:
-		kill()
