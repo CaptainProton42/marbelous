@@ -27,6 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Marbelous"
+run/main_scene="res://scenes/LineDrawing2D.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -111,4 +112,5 @@ jump={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"

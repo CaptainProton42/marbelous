@@ -46,17 +46,22 @@ func _on_shape_completed(start_point : int):
 	var r = 4.0 * PI * a / (u*u)
 
 	if (r > 0.8 and r < 1.2) or corner_count <= 2 or corner_count > 4:
-		var circ = CollisionShape2D.new()
-		circ.shape = CircleShape2D.new()
-		circ.shape.radius = sqrt(_current_drawing.get_area(start_point) / PI)
-		circ.position = _current_drawing.get_com(start_point)
+		var circ = Polygon2D.new()
+		var radius = sqrt(_current_drawing.get_area(start_point) / PI)
+		var position = _current_drawing.get_com(start_point)
+		var t = 0.0
+		var p : PoolVector2Array = []
+		for i in range(20):
+			t += 2.0 * PI / 20.0
+			p.push_back(position + radius * Vector2(sin(t), cos(t)))
+		circ.polygon = p
 		add_child(circ)
 	elif corner_count == 3:
-		var poly = CollisionPolygon2D.new()
+		var poly = Polygon2D.new()
 		poly.polygon = corners
 		add_child(poly)
 	elif corner_count == 4:	
-		var poly = CollisionPolygon2D.new()
+		var poly = Polygon2D.new()
 		poly.polygon = corners
 		add_child(poly)
 		
