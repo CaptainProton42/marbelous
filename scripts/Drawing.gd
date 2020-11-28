@@ -100,7 +100,9 @@ func append_point(pt : Vector2):
 
 func _close_shape():
 	# Just close with the beginnig
-	if (_points[_points.size() - 1] - _points[0]).length() < close_shape_distance:
+	if (_points.size() < 2):
+		emit_signal("shape_failed")
+	elif (_points[_points.size() - 1] - _points[0]).length() < close_shape_distance:
 		_points.append(_points[0])
 		emit_signal("shape_completed", 0)
 	else:
