@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/audio/set 1/set 1 - circle (loopinh).ogg" type="AudioStream" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 94.2985, 362.029 )
+stream = ExtResource( 1 )
+pitch_scale = 2.12
+autoplay = true
+max_distance = 500000.0
+attenuation = 1.93187
+bus = "hits"

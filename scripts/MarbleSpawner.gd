@@ -28,8 +28,6 @@ func _on_marble_entered_state(marble, state : int) -> void:
 func _spawn_marble(marble) -> void:
 	# Try to spawn the marble. If too early, put it in queue
 	if _spawn_timer <= 0.0:
-		marble.position = Vector2(0.0, 0.0)
-		marble.linear_velocity = start_velocity
 		marble.revive()
 		_spawn_timer = min_time_between_spawns
 		_marbles_alive += 1
