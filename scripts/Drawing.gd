@@ -69,7 +69,7 @@ func get_corners() -> PoolVector2Array:
 		var angle_sum : float = 0.0
 		var back_distance : float = 0.0
 		var i = k
-		while back_distance < 0.05 * _length:
+		while back_distance < corner_detection_distance * _length:
 			if (i < 3):
 				break
 			angle_sum += (_points[i-1] - _points[i-2]).angle_to((_points[i] - _points[i-1]))
