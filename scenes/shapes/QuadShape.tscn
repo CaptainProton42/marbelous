@@ -18,5 +18,4 @@ polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
 polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
-attenuation = 0.68302
 bus = "shape"

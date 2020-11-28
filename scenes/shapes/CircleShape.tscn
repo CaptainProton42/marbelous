@@ -4,15 +4,14 @@
 [ext_resource path="res://assets/textures/circle_shape.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/set 1/set 1 - circle.ogg" type="AudioStream" id=4]
 
-[sub_resource type="PhysicsMaterial" id=1]
+[sub_resource type="PhysicsMaterial" id=3]
 bounce = 3.0
 
 [sub_resource type="CircleShape2D" id=2]
-resource_local_to_scene = true
 radius = 1.0
 
 [node name="CircleShape" type="StaticBody2D"]
-physics_material_override = SubResource( 1 )
+physics_material_override = SubResource( 3 )
 script = ExtResource( 1 )
 audio_stream = ExtResource( 4 )
 

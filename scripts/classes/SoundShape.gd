@@ -9,9 +9,27 @@ func get_area() -> float:
 func get_class() -> String:
 	return "SoundShape"
 
+func semi_to_pitch(semitones):
+	return pow(2, semitones/12)
+
 func _ready():
 	$AudioStreamPlayer.stream = audio_stream
 
 func emit_sound(pitch : float = 1.0):
-	$AudioStreamPlayer.pitch_scale = pitch
+	var area = get_area()
+	var label = Label.new()
+	add_child(label)
+	label.rect_global_position = position
+	label.text = String(area)
+	
+	if area > 0:
+		var pitch_scaling = 0.02
+		var discrete_pitch = area * pitch_scaling
+		var semitones = [1, 3, 5, 7, 10]
+		var pitches = []
+		for s in semitones:
+			pitches.append(semi_to_pitch(s))
+		$AudioStreamPlayer.pitch_scale = discrete_pitch
+	
+#	$AudioStreamPlayer.pitch_scale = pitch
 	$AudioStreamPlayer.play()
