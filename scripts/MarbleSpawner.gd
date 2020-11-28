@@ -13,6 +13,9 @@ var _marbles_queued : Array = []
 onready var marble_tscn = preload("res://scenes/Marble.tscn")
 
 func _ready():
+	# Graphical setup
+	if start_velocity.length() > 0.0:
+		$SpriteAnchor.rotation = start_velocity.angle_to(Vector2(0.0, -1.0))
 	for _i in range(max_marbles_alive):
 		var marble = marble_tscn.instance()
 		marble.connect("entered_state", self, "_on_marble_entered_state")
