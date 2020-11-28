@@ -17,19 +17,20 @@ func _ready():
 
 func emit_sound(pitch : float = 1.0):
 	var area = get_area()
-	var label = Label.new()
-	add_child(label)
-	label.rect_global_position = position
-	label.text = String(area)
+#	var label = Label.new()
+#	add_child(label)
+#	label.rect_global_position = global_position
 	
 	if area > 0:
-		var pitch_scaling = 0.02
+		var pitch_scaling = 0.0001
 		var discrete_pitch = area * pitch_scaling
 		var semitones = [1, 3, 5, 7, 10]
 		var pitches = []
 		for s in semitones:
 			pitches.append(semi_to_pitch(s))
-		$AudioStreamPlayer.pitch_scale = discrete_pitch
+		$AudioStreamPlayer.pitch_scale = 1/discrete_pitch
+#		label.text = String(area) + ", pitch: " + String(discrete_pitch)
+		printt(area, discrete_pitch)
 	
 #	$AudioStreamPlayer.pitch_scale = pitch
 	$AudioStreamPlayer.play()
