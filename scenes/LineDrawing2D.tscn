@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/LineDrawing2D.gd" type="Script" id=2]
+
+[node name="LineDrawing2D" type="Control"]
+process_priority = 8
+margin_right = 1278.0
+margin_bottom = 720.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+draw_interval = 0.02
+available_ink = 999999.0
