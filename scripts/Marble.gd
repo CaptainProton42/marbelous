@@ -17,7 +17,6 @@ func kill() -> void:
 	_enter_state(State.DEAD)
 
 func _ready() -> void:
-	connect("body_entered", self, "_on_body_entered")
 	_enter_state(_state)
 
 func _enter_state(p_state : int) -> void:
@@ -39,24 +38,32 @@ func _integrate_forces(state : Physics2DDirectBodyState):
 
 	if state.get_contact_count() > 0:
 		var collider = state.get_contact_collider_object(0)
-		if collider is StaticBody2D:
+		if collider.get_class() == "SoundShape":
+			# Bounce and trigger sound
 			var normal = state.get_contact_local_normal(0)
 			var dir = state.linear_velocity.normalized()
-
+			
 			var bounce_dir = dir.reflect(normal)
+
+			collider.emit_sound()
+			collider.hit(normal)
 			
 			# This is terrible. Hopefully noone will notice
 			apply_central_impulse(50.0 * (collider.physics_material_override.bounce - 1.0)*bounce_dir)
 
 	state.integrate_forces()
 
-func _on_body_entered(body) -> void:
-	if body.get_class() == "SoundShape":
-		body.emit_sound()
-		body.hit()
+func sigmoid(x : float) -> float:
+	return x / (1 + abs(x))
 
 func _physics_process(_delta : float) -> void:
 	if _state == State.SHOULD_RESET:
 		linear_velocity = get_parent().start_velocity
 		global_transform.origin = get_parent().global_transform.origin
 		_enter_state(State.ALIVE)
+
+	#var offset = -20.0*linear_velocity.normalized() * sigmoid(linear_velocity.length())
+
+	#$Sprite/marble_eye.offset = offset
+	#$Sprite/marble_eye2.offset = offset
+	#$Sprite/marble_mouth.offset = offset
