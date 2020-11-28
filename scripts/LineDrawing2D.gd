@@ -19,7 +19,7 @@ export var draw_min_dist : float = 1
 export var line_tex : Texture
 export var line_width : float = 10.0
 
-export var available_ink : float = 3000.0
+export var corner_detection_distance : float = 0.05
 
 export var line_color : Color
 
@@ -62,6 +62,7 @@ func _on_shape_failed():
 func _enter_draw_mode():
 	_pen_down = true
 	_current_drawing = Drawing.new()
+	_current_drawing.corner_detection_distance = corner_detection_distance
 	_current_drawing._line_width = line_width
 	_current_drawing._line_color = line_color
 	_current_drawing.connect("shape_completed", self, "_on_shape_completed")
