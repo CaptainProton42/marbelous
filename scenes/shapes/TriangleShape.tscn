@@ -1,21 +1,25 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/shapes/TriangleShape.gd" type="Script" id=1]
-[ext_resource path="res://materials/shape material.tres" type="Material" id=2]
+[ext_resource path="res://vfx/shape material.tres" type="Material" id=2]
 [ext_resource path="res://assets/audio/set 1/set 1 - triangle.ogg" type="AudioStream" id=3]
+[ext_resource path="res://vfx/shape anim.tscn" type="PackedScene" id=4]
 
-[sub_resource type="PhysicsMaterial" id=4]
+[sub_resource type="PhysicsMaterial" id=1]
 bounce = 3.0
 
 [node name="TriangleShape" type="StaticBody2D"]
-physics_material_override = SubResource( 4 )
+physics_material_override = SubResource( 1 )
 script = ExtResource( 1 )
 audio_stream = ExtResource( 3 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+modulate = Color( 1.2, 1.2, 1.2, 1 )
 material = ExtResource( 2 )
 color = Color( 1, 0.580392, 0.647059, 1 )
-polygon = PoolVector2Array( 531.425, 267.166, 478.569, 493.696, 729.639, 440.839 )
+antialiased = true
+
+[node name="AnimationPlayer" parent="Polygon2D" instance=ExtResource( 4 )]
 
 [node name="Collision" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0 )

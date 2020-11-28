@@ -10,3 +10,6 @@ func set_corners(corners : PoolVector2Array) -> void:
 
 func get_area() -> float:
 	return _area
+
+func hit():
+	$Polygon2D/AnimationPlayer.play("glow")

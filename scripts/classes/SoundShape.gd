@@ -57,3 +57,6 @@ func release():
 		$AudioStreamPlayer.volume_db, -80, 1.0, 
 		Tween.TRANS_CIRC)
 	tween.start()
+
+func hit():
+	pass

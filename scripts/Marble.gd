@@ -53,6 +53,7 @@ func _integrate_forces(state : Physics2DDirectBodyState):
 func _on_body_entered(body) -> void:
 	if body.get_class() == "SoundShape":
 		body.emit_sound()
+		body.hit()
 
 func _physics_process(_delta : float) -> void:
 	if _state == State.SHOULD_RESET:
