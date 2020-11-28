@@ -15,6 +15,7 @@ var _vertices : PoolVector3Array = []
 
 var _corner_detected : bool = false
 var _corners : PoolVector2Array = []
+var _length : float = 0.0
 
 # Parameters for corner detection
 var corner_detection_distance : float = 75.0
@@ -63,10 +64,32 @@ func get_com(start_index : int = 0) -> Vector2:
 	return com / (_points.size() - start_index)
 
 func get_corners() -> PoolVector2Array:
+	# Rolling sum of last few angles
+	for k in range(_points.size()):
+		var angle_sum : float = 0.0
+		var back_distance : float = 0.0
+		var i = k
+		while back_distance < 0.05 * _length:
+			if (i < 3):
+				break
+			angle_sum += (_points[i-1] - _points[i-2]).angle_to((_points[i] - _points[i-1]))
+			back_distance += (_points[i] - _points[i - 1]).length()
+			i -= 1
+		angle_sum = abs(angle_sum)
+		if (angle_sum >= corner_detection_angle and not _corner_detected):
+			_corner_detected = true
+			_corners.append(_points[k])
+		elif (_corner_detected and angle_sum < corner_detection_angle):
+			_corner_detected = false
+
+	_corners.append(_points[_points.size() - 1])
+
+	print("found", _corners.size(), " corners")
 	return _corners
 
 func append_point(pt : Vector2):
 	_points.append(pt)
+	_length += (pt - _points[_points.size() - 2]).length()
 	_generate_mesh()
 
 	if (_points.size() > 1):
@@ -80,23 +103,6 @@ func append_point(pt : Vector2):
 		_vertices.push_back(Vector3(pt.x, pt.y, 0.0) - 0.5 * _line_width * Vector3(normal.x, normal.y, 0.0))
 
 		_check_for_intersection()
-
-		# Rolling sum of last few angles
-		var angle_sum : float = 0.0
-		var back_distance : float = 0.0
-		var i = _points.size() - 1
-		while back_distance < corner_detection_distance:
-			if (i < 3):
-				return
-			angle_sum += (_points[i-1] - _points[i-2]).angle_to((_points[i] - _points[i-1]))
-			back_distance += (_points[i] - _points[i - 1]).length()
-			i -= 1
-		angle_sum = abs(angle_sum)
-		if (angle_sum >= corner_detection_angle and not _corner_detected):
-			_corner_detected = true
-			_corners.append(_points[_points.size() - 1])
-		elif (_corner_detected and angle_sum < corner_detection_angle):
-			_corner_detected = false
 
 func _close_shape():
 	# Just close with the beginnig
@@ -126,7 +132,7 @@ func _check_for_intersection():
 			emit_signal("shape_completed", i)
 
 func _generate_mesh():
-	if _points.size() < 2:
+	if _points.size() < 3:
 		return
 
 	var arr_mesh = ArrayMesh.new()

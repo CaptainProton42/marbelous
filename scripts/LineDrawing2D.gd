@@ -38,7 +38,6 @@ func _on_gui_input(event):
 
 func _on_shape_completed(start_point : int):
 	var corners = _current_drawing.get_corners()
-	corners.append(_current_drawing.get_points()[_current_drawing.get_points().size() - 1])
 	var corner_count = corners.size()
 
 	var a = _current_drawing.get_area()
