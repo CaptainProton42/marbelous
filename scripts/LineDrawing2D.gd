@@ -2,6 +2,9 @@ extends Control
 class_name LineDrawing2D
 
 signal drawing_changed
+signal circle_created
+signal triangle_created
+signal quad_created
 
 var _meshes : Array = []
 var _current_drawing : Drawing = null
@@ -46,24 +49,13 @@ func _on_shape_completed(start_point : int):
 	var r = 4.0 * PI * a / (u*u)
 
 	if (r > 0.8 and r < 1.2) or corner_count <= 2 or corner_count > 4:
-		var circ = Polygon2D.new()
 		var radius = sqrt(_current_drawing.get_area(start_point) / PI)
 		var position = _current_drawing.get_com(start_point)
-		var t = 0.0
-		var p : PoolVector2Array = []
-		for i in range(20):
-			t += 2.0 * PI / 20.0
-			p.push_back(position + radius * Vector2(sin(t), cos(t)))
-		circ.polygon = p
-		add_child(circ)
+		emit_signal("circle_created", position, radius)
 	elif corner_count == 3:
-		var poly = Polygon2D.new()
-		poly.polygon = corners
-		add_child(poly)
+		emit_signal("triangle_created", corners)
 	elif corner_count == 4:	
-		var poly = Polygon2D.new()
-		poly.polygon = corners
-		add_child(poly)
+		emit_signal("quad_created", corners)
 		
 func _enter_draw_mode():
 	if _spent_ink < available_ink:
