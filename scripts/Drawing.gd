@@ -2,6 +2,7 @@ extends Resource
 class_name Drawing
 
 signal shape_completed
+signal shape_failed
 
 var _points : PoolVector2Array = []
 var _mesh : MeshInstance2D = MeshInstance2D.new()
@@ -102,6 +103,8 @@ func _close_shape():
 	if (_points[_points.size() - 1] - _points[0]).length() < close_shape_distance:
 		_points.append(_points[0])
 		emit_signal("shape_completed", 0)
+	else:
+		emit_signal("shape_failed")
 
 
 func _check_for_intersection():

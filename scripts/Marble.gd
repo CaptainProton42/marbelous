@@ -37,6 +37,7 @@ func _integrate_forces(state : Physics2DDirectBodyState):
 			var bounce_dir = dir.reflect(normal)
 
 			print(collider.physics_material_override.bounce)
-			apply_central_impulse(50.0*collider.physics_material_override.bounce*bounce_dir)
+			# This is terrible. Hopefully noone will notice
+			apply_central_impulse(50.0 * (collider.physics_material_override.bounce - 1.0)*bounce_dir)
 
 	state.integrate_forces()
