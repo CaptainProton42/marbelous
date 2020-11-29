@@ -40,9 +40,6 @@ scale = Vector2( 1.08121, 1192.89 )
 texture = SubResource( 2 )
 centered = false
 
-[node name="volume" parent="." instance=ExtResource( 10 )]
-position = Vector2( 32, -24 )
-
 [node name="MarbleSpawner" parent="." instance=ExtResource( 3 )]
 position = Vector2( 116.736, 72.96 )
 min_time_between_spawns = 3.0
@@ -623,3 +620,6 @@ position = Vector2( 1132.65, 111.377 )
 [node name="GoalTrigger" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1107.33, 557.2 )
 collectibles_needed = 3
+
+[node name="volume" parent="." instance=ExtResource( 10 )]
+position = Vector2( 32, -24 )
