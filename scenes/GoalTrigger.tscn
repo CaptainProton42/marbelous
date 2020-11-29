@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/GoalTrigger.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 21.6741
+radius = 36.4146
 
 [sub_resource type="AnimationNodeAnimation" id=2]
 animation = "close"
@@ -21,7 +21,7 @@ blend_point_1/pos = 1.0
 [sub_resource type="Animation" id=5]
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:self_modulate")
+tracks/0/path = NodePath("../SpriteContainer/Sprite:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -33,7 +33,7 @@ tracks/0/keys = {
 "values": [ Color( 0.423529, 0.423529, 0.423529, 1 ), Color( 0.423529, 0.423529, 0.423529, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Sprite:scale")
+tracks/1/path = NodePath("../SpriteContainer/Sprite:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -45,7 +45,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.16, 0.16 ), Vector2( 0.16, 0.16 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Sprite:rotation_degrees")
+tracks/2/path = NodePath("../SpriteContainer/Sprite:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -60,7 +60,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=6]
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:rotation_degrees")
+tracks/0/path = NodePath("../SpriteContainer/Sprite:rotation_degrees")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -72,7 +72,7 @@ tracks/0/keys = {
 "values": [ -30.0, 30.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Sprite:scale")
+tracks/1/path = NodePath("../SpriteContainer/Sprite:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -84,7 +84,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.18, 0.18 ), Vector2( 0.159, 0.159 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Sprite:self_modulate")
+tracks/2/path = NodePath("../SpriteContainer/Sprite:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -117,7 +117,7 @@ resource_name = "trigger"
 length = 0.4
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:scale")
+tracks/0/path = NodePath("SpriteContainer/Sprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -129,7 +129,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.16, 0.16 ), Vector2( 0.18, 0.18 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/path = NodePath("SpriteContainer/Sprite:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -152,13 +152,28 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Progress:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0, 1 ) ]
+}
 
 [node name="GoalTrigger" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="SpriteContainer" type="Node2D" parent="."]
+scale = Vector2( 1.63102, 1.63102 )
+
+[node name="Sprite" type="Sprite" parent="SpriteContainer"]
 self_modulate = Color( 0.423529, 0.423529, 0.423529, 1 )
 rotation = -0.523599
 scale = Vector2( 0.16, 0.16 )
@@ -180,3 +195,6 @@ anims/open = SubResource( 6 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/open = SubResource( 7 )
 anims/trigger = SubResource( 8 )
+
+[node name="Progress" type="Node2D" parent="."]
+position = Vector2( 0, 55.298 )

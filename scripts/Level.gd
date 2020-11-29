@@ -22,14 +22,24 @@ func _ready():
 	for g in goals:
 		g.connect("triggered", self, "_on_goal_triggered", [g])
 
+func _update_goal_progress_bar(g : Node):
+	var max_collected_count = 0
+	for m in marbles:
+		var cur_collected_count = m.get_collected(g.collectible_type)
+		max_collected_count = max(cur_collected_count, max_collected_count)
+	g.set_max_collectibles(max_collected_count)
+
 func _on_marble_collected(marble : Node):
 	for g in goals:
 		g.check_marble_for_win_condition(marble)
+		_update_goal_progress_bar(g)
+
 
 func _on_marble_entered_state(state : int, marble : Node):
 	if state == marble.State.DEAD:
 		for g in goals:
 			g.remove_marble(marble)
+			_update_goal_progress_bar(g)
 
 func _on_goal_triggered(goal : Node) -> void:
 	triggered_goals.append(goal)

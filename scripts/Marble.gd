@@ -47,6 +47,7 @@ func _enter_state(p_state : int) -> void:
 #			visible = false
 			$Sprite.visible = false	# So the particles can be visible despite marble death
 			$CollisionShape2D.disabled = true
+			set_sleeping(true)
 
 			_reset_collectibles()
 			
