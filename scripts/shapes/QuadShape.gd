@@ -25,6 +25,7 @@ func _process(_delta):
 	$Polygon2D.position = last_hit_normal * hit_displacement_amp
 
 func _ready():
+	$Polygon2D/AnimationPlayer.stop()
 	$Polygon2D/AnimationPlayer.play("create")
 
 func remove():

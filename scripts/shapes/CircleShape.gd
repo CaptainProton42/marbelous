@@ -13,6 +13,7 @@ func get_area() -> float:
 	return _area
 
 func play_animation():
+	$Texture/AnimationPlayer.stop()
 	$Texture/AnimationPlayer.play("hit")
 
 func _process(_delta):
