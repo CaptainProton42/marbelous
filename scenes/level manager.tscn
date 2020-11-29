@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/level button.gd" type="Script" id=1]
 [ext_resource path="res://scenes/level manager.gd" type="Script" id=2]
@@ -52,6 +52,12 @@ glow_blend_mode = 1
 glow_hdr_threshold = 0.9
 glow_hdr_scale = 1.36
 glow_bicubic_upscale = true
+
+[sub_resource type="Gradient" id=16]
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=17]
+gradient = SubResource( 16 )
 
 [sub_resource type="StyleBoxFlat" id=15]
 bg_color = Color( 0.152941, 0.478431, 0.862745, 1 )
@@ -140,6 +146,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="background" type="TextureRect" parent="win"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 17 )
+expand = true
+
 [node name="HBoxContainer" type="HBoxContainer" parent="win"]
 anchor_top = 1.0
 anchor_right = 1.0
@@ -155,21 +167,23 @@ __meta__ = {
 }
 
 [node name="main" type="Button" parent="win/HBoxContainer"]
-margin_right = 263.0
+margin_right = 989.0
 margin_bottom = 155.0
 size_flags_horizontal = 3
 custom_styles/normal = SubResource( 15 )
 text = "main menu"
 
 [node name="retry" type="Button" parent="win/HBoxContainer"]
-margin_left = 363.0
-margin_right = 626.0
+visible = false
+margin_left = 544.0
+margin_right = 989.0
 margin_bottom = 155.0
 size_flags_horizontal = 3
 custom_styles/normal = SubResource( 15 )
 text = "Retry"
 
 [node name="next" type="Button" parent="win/HBoxContainer"]
+visible = false
 margin_left = 726.0
 margin_right = 989.0
 margin_bottom = 155.0
@@ -190,3 +204,4 @@ __meta__ = {
 [connection signal="pressed" from="levels/sandbox" to="levels/sandbox" method="on_pressed"]
 [connection signal="pressed" from="levels/level 1" to="levels/level 1" method="on_pressed"]
 [connection signal="pressed" from="levels/goal" to="levels/goal" method="on_pressed"]
+[connection signal="pressed" from="win/HBoxContainer/main" to="." method="go_to_main_menu"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/LineDrawing2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/ShapeSpawner.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://scenes/KillArea.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/textures/obstacle.png" type="Texture" id=6]
 [ext_resource path="res://scenes/volume slider.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/CollectibleNote.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/GoalTrigger.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
@@ -610,3 +612,19 @@ margin_left = 1257.0
 margin_top = 0.0
 margin_right = 1273.0
 margin_bottom = 127.0
+
+[node name="collection" type="Node2D" parent="."]
+
+[node name="GoalTrigger" parent="collection" instance=ExtResource( 9 )]
+position = Vector2( 1082.33, 580.29 )
+collision_layer = 1
+collectibles_needed = 3
+
+[node name="CollectibleNote" parent="collection" instance=ExtResource( 8 )]
+position = Vector2( 143.469, 581.427 )
+
+[node name="CollectibleNote2" parent="collection" instance=ExtResource( 8 )]
+position = Vector2( 554.998, 115.153 )
+
+[node name="CollectibleNote3" parent="collection" instance=ExtResource( 8 )]
+position = Vector2( 1132.65, 111.377 )

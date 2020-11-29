@@ -10,6 +10,10 @@ func clear_level():
 	if loaded_level:
 		loaded_level.queue_free()
 
+func go_to_main_menu():
+	$win.hide()
+	clear_level()
+
 func load_level(level):
 	clear_level()
 	loaded_level = level.instance()
@@ -22,3 +26,6 @@ func _input(event):
 
 func on_level_cleared():
 	print("level cleared")
+
+func on_level_complete():
+	$win.show()
