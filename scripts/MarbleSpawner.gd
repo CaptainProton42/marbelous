@@ -40,6 +40,7 @@ func _on_marble_entered_state(state : int, marble) -> void:
 func _spawn_marble(marble) -> void:
 	# Try to spawn the marble. If too early, put it in queue
 	if _spawn_timer <= 0.0:
+		$AnimationPlayer.play("spawn")
 		marble.revive()
 		_spawn_timer = min_time_between_spawns
 		_marbles_alive += 1
