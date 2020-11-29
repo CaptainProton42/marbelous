@@ -9,6 +9,8 @@ enum State {
 }
 
 var _state = State.DEAD
+var _collected : PoolIntArray = [] # Counts how many collectibles are picked up (per type)
+var _collected_nodes : Array = [] # We need to keep track of which collectibles have aleady been picked up
 
 func revive() -> void:
 	_enter_state(State.SHOULD_RESET)
@@ -19,6 +21,10 @@ func kill() -> void:
 		$death.play()
 
 func _ready() -> void:
+	_collected.resize(Collectible.Type.size())
+	for i in range(_collected.size()):
+		_collected[i] = 0
+
 	_enter_state(_state)
 
 func _enter_state(p_state : int) -> void:
@@ -69,3 +75,8 @@ func _physics_process(_delta : float) -> void:
 	#$Sprite/marble_eye.offset = offset
 	#$Sprite/marble_eye2.offset = offset
 	#$Sprite/marble_mouth.offset = offset
+
+func collect(collectible : Node):
+	if not collectible in _collected_nodes:
+		_collected_nodes.append(collectible)
+		_collected[collectible.type] += 1
