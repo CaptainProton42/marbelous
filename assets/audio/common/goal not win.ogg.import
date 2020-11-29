@@ -11,5 +11,5 @@ dest_files=[ "res://.import/goal not win.ogg-e63535311dfa7a914155807ac44cb56c.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
