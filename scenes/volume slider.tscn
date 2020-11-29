@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/ui/volume slider.gd" type="Script" id=1]
+
+[node name="volume" type="VSlider"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1257.27
+margin_top = 1.10187
+margin_right = -0.729248
+margin_bottom = -582.898
+max_value = 1.0
+step = 0.01
+script = ExtResource( 1 )
+[connection signal="value_changed" from="." to="." method="on_volume_value_changed"]
