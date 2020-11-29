@@ -27,7 +27,7 @@ script = ExtResource( 1 )
 audio_stream = ExtResource( 2 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-modulate = Color( 1.2, 1.2, 1.2, 1 )
+modulate = Color( 0.88, 0.88, 0.88, 1 )
 material = ExtResource( 3 )
 color = Color( 0, 0.541176, 1, 1 )
 antialiased = true
