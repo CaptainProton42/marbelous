@@ -1,6 +1,8 @@
 extends StaticBody2D
 class_name SoundShape
 
+signal removed
+
 export var audio_stream : AudioStream
 export var hit_displacement_amp : float = 0.0 # Displace the shape slightly when hit
 
