@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/level button.gd" type="Script" id=1]
 [ext_resource path="res://scenes/level manager.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Playground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/levels/Level1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/levels/MinimalExample.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
@@ -48,5 +49,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 level = ExtResource( 4 )
+
+[node name="goal" type="Button" parent="levels"]
+margin_left = 421.701
+margin_top = 387.5
+margin_right = 715.701
+margin_bottom = 586.5
+text = "minimal goal"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+level = ExtResource( 5 )
 [connection signal="pressed" from="levels/sandbox" to="levels/sandbox" method="on_pressed"]
 [connection signal="pressed" from="levels/level 1" to="levels/level 1" method="on_pressed"]
+[connection signal="pressed" from="levels/goal" to="levels/goal" method="on_pressed"]

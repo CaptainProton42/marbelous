@@ -48,10 +48,6 @@ config/name="Marbelous"
 run/main_scene="res://scenes/level manager.tscn"
 config/icon="res://icon.png"
 
-[audio]
-
-output_latency.web=15
-
 [display]
 
 window/size/width=1280
