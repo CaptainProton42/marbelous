@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/LineDrawing2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/ShapeSpawner.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://mockups/image.png" type="Texture" id=4]
 [ext_resource path="res://scenes/KillArea.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/textures/obstacle.png" type="Texture" id=6]
-[ext_resource path="res://scenes/volume slider.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/CollectibleNote.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/GoalTrigger.tscn" type="PackedScene" id=9]
 
@@ -606,12 +605,6 @@ polygon = PoolVector2Array( 818.413, 228.215, 923.894, 333.696, 1014.11, 336.472
 [node name="obstacle" type="Sprite" parent="KillArea3/CollisionPolygon2D20"]
 position = Vector2( 818.399, 521.852 )
 texture = ExtResource( 6 )
-
-[node name="volume" parent="." instance=ExtResource( 7 )]
-margin_left = 1257.0
-margin_top = 0.0
-margin_right = 1273.0
-margin_bottom = 127.0
 
 [node name="collection" type="Node2D" parent="."]
 
