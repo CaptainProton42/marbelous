@@ -618,7 +618,7 @@ position = Vector2( 631.084, 179.225 )
 position = Vector2( 1104.62, 179.454 )
 
 [node name="GoalTrigger" parent="." instance=ExtResource( 9 )]
-position = Vector2( 118.795, 497.803 )
+position = Vector2( 1100.26, 550.129 )
 
 [node name="volume" parent="." instance=ExtResource( 10 )]
 position = Vector2( 32, -24 )
