@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "glow"
@@ -13,5 +13,22 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
+[sub_resource type="Animation" id=2]
+resource_name = "init"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:v")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.88, -0.29, 0.0425248, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer"]
+
+autoplay = "init"
 anims/glow = SubResource( 1 )
+anims/init = SubResource( 2 )
+
