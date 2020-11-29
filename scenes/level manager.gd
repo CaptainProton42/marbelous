@@ -28,4 +28,5 @@ func on_level_cleared():
 	on_level_complete()
 
 func on_level_complete():
+	move_child($win, get_child_count())
 	$win.show()
