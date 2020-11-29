@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+export (PackedScene) var death_particles
+
 signal entered_state
 
 enum State {
@@ -19,6 +21,13 @@ func kill() -> void:
 	_enter_state(State.DEAD)
 	if has_node("death"):
 		$death.play()
+	printt(self, "dies")
+	
+	# particles are instanced and dropped in parent
+	var particles = death_particles.instance()
+	get_parent().add_child(particles)
+	particles.global_position = self.global_position
+	particles.emitting = true
 
 func _ready() -> void:
 	_collected.resize(Collectible.Type.size())
@@ -30,12 +39,15 @@ func _ready() -> void:
 func _enter_state(p_state : int) -> void:
 	match p_state:
 		State.DEAD:
-			visible = false
+#			visible = false
+			$Sprite.visible = false	# So the particles can be visible despite marble death
 			$CollisionShape2D.disabled = true
+
 			
 		State.SHOULD_RESET:
 			set_sleeping(false)
-			visible = true
+#			visible = true
+			$Sprite.visible = true
 			$CollisionShape2D.disabled = false
 
 	_state = p_state

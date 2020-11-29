@@ -20,6 +20,7 @@ func _on_body_entered(body) -> void:
 	emit_signal("picked_up")
 	
 	if has_node("sound"):
+		print("we sound")
 		var i = body._collected_nodes.size()-1
 		if i < collect_sounds.size():
 			$sound.stream = collect_sounds[i]
