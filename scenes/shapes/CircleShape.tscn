@@ -4,11 +4,9 @@
 [ext_resource path="res://assets/textures/circle_shape.png" type="Texture" id=2]
 [ext_resource path="res://vfx/shape material.tres" type="Material" id=3]
 [ext_resource path="res://assets/audio/set 1/set 1 - circle.ogg" type="AudioStream" id=4]
+[ext_resource path="res://soundshape.physicsmaterial.tres" type="PhysicsMaterial" id=5]
 
-[sub_resource type="PhysicsMaterial" id=1]
-bounce = 3.0
-
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "create"
 length = 0.3
 step = 0.05
@@ -25,7 +23,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "hit"
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:modulate:v")
@@ -60,7 +58,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "init"
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:modulate:v")
@@ -97,7 +95,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "remove"
 length = 0.2
 step = 0.05
@@ -126,12 +124,12 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=5]
 radius = 1.0
 
 [node name="CircleShape" type="StaticBody2D"]
 material = ExtResource( 3 )
-physics_material_override = SubResource( 1 )
+physics_material_override = ExtResource( 5 )
 script = ExtResource( 1 )
 audio_stream = ExtResource( 4 )
 
@@ -141,10 +139,10 @@ scale = Vector2( 1e-05, 1e-05 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Texture"]
 autoplay = "init"
-anims/create = SubResource( 2 )
-anims/hit = SubResource( 3 )
-anims/init = SubResource( 4 )
-anims/remove = SubResource( 5 )
+anims/create = SubResource( 1 )
+anims/hit = SubResource( 2 )
+anims/init = SubResource( 3 )
+anims/remove = SubResource( 4 )
 
 [node name="Scale" type="Node2D" parent="Texture"]
 scale = Vector2( 1e-05, 1e-05 )
@@ -154,7 +152,7 @@ scale = Vector2( 0.004, 0.004 )
 texture = ExtResource( 2 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 disabled = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
