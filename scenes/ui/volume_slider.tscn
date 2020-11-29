@@ -1,17 +1,19 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/ui/volume slider.gd" type="Script" id=1]
-[ext_resource path="res://assets/VolumeSlider/mute.png" type="Texture" id=2]
-[ext_resource path="res://assets/VolumeSlider/MaxVolume.png" type="Texture" id=3]
-[ext_resource path="res://assets/VolumeSlider/backdrop.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/mute.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/MaxVolume.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/backdrop.png" type="Texture" id=4]
 
-[node name="volume" type="VSlider"]
+[node name="volume" type="Node2D"]
+
+[node name="slider" type="VSlider" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1199.75
-margin_top = 78.2012
-margin_right = 1.74805
-margin_bottom = -504.713
+margin_left = 1200.0
+margin_top = 78.0
+margin_right = 1216.0
+margin_bottom = 218.0
 max_value = 1.0
 step = 0.01
 script = ExtResource( 1 )
@@ -19,34 +21,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MaxVolume" type="TextureRect" parent="."]
-margin_left = 18.8047
-margin_top = -44.1721
-margin_right = 518.805
-margin_bottom = 455.828
+[node name="MaxVolume" type="TextureRect" parent="slider"]
+margin_left = -11.626
+margin_top = -42.3312
+margin_right = 488.374
+margin_bottom = 457.669
 rect_scale = Vector2( 0.0892136, 0.0892136 )
 texture = ExtResource( 3 )
 
-[node name="mute" type="TextureRect" parent="."]
-margin_left = 19.5996
-margin_top = 136.307
-margin_right = 519.6
-margin_bottom = 636.307
+[node name="mute" type="TextureRect" parent="slider"]
+margin_left = -10.8311
+margin_top = 138.148
+margin_right = 489.169
+margin_bottom = 638.148
 rect_scale = Vector2( 0.0884428, 0.0884428 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="backdrop" type="TextureRect" parent="."]
+[node name="backdrop" type="TextureRect" parent="slider"]
 show_behind_parent = true
-margin_left = -0.996704
-margin_top = -58.1831
-margin_right = 151.003
-margin_bottom = 349.817
+margin_left = -31.4281
+margin_top = -56.3422
+margin_right = 120.572
+margin_bottom = 351.658
 rect_scale = Vector2( 0.577592, 0.617592 )
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="value_changed" from="." to="." method="on_volume_value_changed"]
+[connection signal="value_changed" from="slider" to="slider" method="on_volume_value_changed"]
