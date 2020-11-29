@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Curve" id=2]
+min_value = -400.0
+max_value = 400.0
+_data = [ Vector2( 0, 400 ), 0.0, 0.0, 0, 0, Vector2( 0.454023, 14.5455 ), -872.727, -872.727, 0, 0, Vector2( 0.994253, -196.364 ), 1349.82, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=3]
+max_value = 2.5
+_data = [ Vector2( 0, 2.48295 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.528409 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0.417219, 0.927152 )
+colors = PoolColorArray( 0.587752, 0.412872, 0.636719, 1, 1, 1, 1, 1 )
+
+[node name="Particles2D" type="CPUParticles2D"]
+material = SubResource( 1 )
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 0.5
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector2( 1, 1 )
+spread = 180.0
+initial_velocity = 100.0
+initial_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 0.2
+linear_accel_curve = SubResource( 2 )
+scale_amount = 4.0
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 4 )

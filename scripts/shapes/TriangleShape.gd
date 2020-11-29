@@ -18,6 +18,7 @@ func get_area() -> float:
 	return _area
 
 func play_animation():
+	$Polygon2D/AnimationPlayer.stop()
 	$Polygon2D/AnimationPlayer.play("hit")
 
 func _process(_delta):
