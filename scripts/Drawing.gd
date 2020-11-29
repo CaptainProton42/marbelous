@@ -85,7 +85,6 @@ func get_corners() -> PoolVector2Array:
 	# If the angle between the last and the first segment is larger than the threshold, we can also add it as a corner
 	var i = _points.size() - 1
 	if abs((_points[1] - _points[0]).angle_to((_points[i-1] - _points[i-2]))) > corner_detection_angle:
-		print("apped")
 		_corners.append(_points[i])
 
 	return _corners

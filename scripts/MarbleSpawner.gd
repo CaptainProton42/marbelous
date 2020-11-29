@@ -6,11 +6,19 @@ export var max_marbles_alive : int = 1
 export var start_velocity : Vector2 = Vector2(0.0, 0.0)
 export var min_time_between_spawns : float = 5.0
 
+var _marbles : Array = []
 var _marbles_alive : int = 0
 var _spawn_timer : float = 0.0
 var _marbles_queued : Array = []
 
+
 onready var marble_tscn = preload("res://scenes/Marble.tscn")
+
+func get_class() -> String:
+	return "MarbleSpawner"
+
+func get_marbles() -> Array:
+	return _marbles
 
 func _ready():
 	# Graphical setup
@@ -18,10 +26,11 @@ func _ready():
 		$SpriteAnchor.rotation = start_velocity.angle_to(Vector2(0.0, -1.0))
 	for _i in range(max_marbles_alive):
 		var marble = marble_tscn.instance()
-		marble.connect("entered_state", self, "_on_marble_entered_state")
+		marble.connect("entered_state", self, "_on_marble_entered_state", [marble])
+		_marbles.append(marble)
 		add_child(marble)
 
-func _on_marble_entered_state(marble, state : int) -> void:
+func _on_marble_entered_state(state : int, marble) -> void:
 	match state:
 		marble.State.DEAD:
 			# Respawn the marble instantly

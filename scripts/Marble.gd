@@ -3,6 +3,7 @@ extends RigidBody2D
 export (PackedScene) var death_particles
 
 signal entered_state
+signal collected
 
 enum State {
 	ALIVE, 
@@ -29,10 +30,14 @@ func kill() -> void:
 	particles.global_position = self.global_position
 	particles.emitting = true
 
-func _ready() -> void:
+func _reset_collectibles() -> void:
 	_collected.resize(Collectible.Type.size())
 	for i in range(_collected.size()):
 		_collected[i] = 0
+	_collected_nodes = []
+
+func _ready() -> void:
+	_reset_collectibles()
 
 	_enter_state(_state)
 
@@ -43,17 +48,16 @@ func _enter_state(p_state : int) -> void:
 			$Sprite.visible = false	# So the particles can be visible despite marble death
 			$CollisionShape2D.disabled = true
 
+			_reset_collectibles()
 			
 		State.SHOULD_RESET:
 			set_sleeping(false)
 #			visible = true
 			$Sprite.visible = true
 			$CollisionShape2D.disabled = false
-			_collected = []
-			_collected_nodes = []
 
 	_state = p_state
-	emit_signal("entered_state", self, _state)
+	emit_signal("entered_state", _state)
 	$Label.text = State.keys()[_state]
 
 func _integrate_forces(state : Physics2DDirectBodyState):
@@ -93,6 +97,7 @@ func collect(collectible : Node):
 	if not collectible in _collected_nodes:
 		_collected_nodes.append(collectible)
 		_collected[collectible.type] += 1
+	emit_signal("collected")
 
 func get_collected(type : int) -> int:
 	return _collected[type]
