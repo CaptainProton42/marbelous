@@ -19,11 +19,13 @@ func disable():
 	$Collision.disabled = true
 	yield($AnimationPlayer, "animation_finished")
 	visible = false
+	monitoring = false
 
 func enable():
 	$AnimationPlayer.play("respawn")
 	visible = true
 	$Collision.disabled = false
+	monitoring = true
 
 func _on_body_entered(body) -> void:
 	body.collect(self)
