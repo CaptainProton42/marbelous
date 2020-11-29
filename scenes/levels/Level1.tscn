@@ -607,11 +607,6 @@ polygon = PoolVector2Array( 818.413, 228.215, 923.894, 333.696, 1014.11, 336.472
 position = Vector2( 818.399, 521.852 )
 texture = ExtResource( 6 )
 
-[node name="GoalTrigger" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1082.33, 580.29 )
-collision_layer = 1
-collectibles_needed = 3
-
 [node name="CollectibleNote" parent="." instance=ExtResource( 8 )]
 position = Vector2( 143.469, 581.427 )
 
@@ -620,3 +615,7 @@ position = Vector2( 554.998, 115.153 )
 
 [node name="CollectibleNote3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1132.65, 111.377 )
+
+[node name="GoalTrigger" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1107.33, 557.2 )
+collectibles_needed = 3
