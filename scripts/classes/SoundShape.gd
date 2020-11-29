@@ -25,16 +25,20 @@ func _ready():
 	for s in semitones:
 		steps.append(semi_to_pitch(s))
 
-func hit(n : Vector2) -> void:
+func hit(n : Vector2, velocity = 0.0) -> void:
 	last_hit_normal = n
-	emit_sound()
+	emit_sound(velocity)
 	play_animation()
 
 func play_animation():
 	pass
 
-func emit_sound():
+func emit_sound(velocity = 0.0):
 	var area = get_area()
+	
+	var volume = sqrt(velocity / 1000)
+	volume = clamp(volume, 0.0, 1.0)
+	volume = linear2db(volume)
 	
 	if area > 0:
 		var continuous_pitch = area * pitch_scaling
@@ -43,6 +47,7 @@ func emit_sound():
 	else:
 		printerr("Shape area is 0")
 	
+	$AudioStreamPlayer2D.volume_db = volume
 	$AudioStreamPlayer2D.play()
 
 
