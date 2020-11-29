@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/level button.gd" type="Script" id=1]
+[ext_resource path="res://scenes/level manager.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Playground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/levels/Level1.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[node name="level manager" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="background" type="Sprite" parent="."]
+scale = Vector2( 1, 950.698 )
+texture = SubResource( 2 )
+centered = false
+
+[node name="levels" type="Control" parent="."]
+margin_right = 1287.0
+margin_bottom = 725.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sandbox" type="Button" parent="levels"]
+margin_right = 294.0
+margin_bottom = 199.0
+text = "Sandbox"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+level = ExtResource( 3 )
+
+[node name="level 1" type="Button" parent="levels"]
+margin_left = 5.03967
+margin_top = 377.976
+margin_right = 299.04
+margin_bottom = 576.976
+text = "Sandbox"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+level = ExtResource( 4 )
+[connection signal="pressed" from="levels/sandbox" to="levels/sandbox" method="on_pressed"]
+[connection signal="pressed" from="levels/level 1" to="levels/level 1" method="on_pressed"]
