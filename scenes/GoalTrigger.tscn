@@ -23,7 +23,7 @@ blend_point_1/pos = 1.0
 [sub_resource type="Animation" id=5]
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:self_modulate")
+tracks/0/path = NodePath("../SpriteContainer/Sprite:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -35,7 +35,7 @@ tracks/0/keys = {
 "values": [ Color( 0.423529, 0.423529, 0.423529, 1 ), Color( 0.423529, 0.423529, 0.423529, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Sprite:scale")
+tracks/1/path = NodePath("../SpriteContainer/Sprite:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -47,7 +47,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.16, 0.16 ), Vector2( 0.16, 0.16 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Sprite:rotation_degrees")
+tracks/2/path = NodePath("../SpriteContainer/Sprite:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -62,7 +62,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=6]
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:rotation_degrees")
+tracks/0/path = NodePath("../SpriteContainer/Sprite:rotation_degrees")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -74,7 +74,7 @@ tracks/0/keys = {
 "values": [ -30.0, 30.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Sprite:scale")
+tracks/1/path = NodePath("../SpriteContainer/Sprite:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -86,7 +86,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.18, 0.18 ), Vector2( 0.159, 0.159 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Sprite:self_modulate")
+tracks/2/path = NodePath("../SpriteContainer/Sprite:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
