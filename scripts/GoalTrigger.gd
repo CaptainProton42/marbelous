@@ -36,6 +36,8 @@ func _on_body_entered(body) -> void:
 		if body in _marbles_with_win_condition:
 			body.reach_goal()
 			_enter_state(State.TRIGGERED)
+		else:
+			$fail.play()
 
 func _enter_state(new_state : int) -> void:
 	match new_state:
@@ -47,6 +49,7 @@ func _enter_state(new_state : int) -> void:
 			$AnimationTree.active = false
 			$AnimationPlayer.play("trigger")
 			emit_signal("triggered")
+			$success.play()
 
 	_state = new_state
 	emit_signal("entered_state", _state)
