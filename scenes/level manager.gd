@@ -25,7 +25,7 @@ func _input(event):
 		clear_level()
 
 func on_level_cleared():
-	print("level cleared")
+	on_level_complete()
 
 func on_level_complete():
 	$win.show()
