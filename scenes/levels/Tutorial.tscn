@@ -187,7 +187,7 @@ script = ExtResource( 107 )
 [node name="HowToDraw" type="AnimatedSprite" parent="Tutorial" index="0"]
 scale = Vector2( 0.696052, 0.731785 )
 frames = SubResource( 1 )
-frame = 40
+frame = 38
 speed_scale = 10.0
 playing = true
 centered = false
@@ -200,8 +200,8 @@ position = Vector2( 70.7465, 145.497 )
 
 [node name="HowToRemove" type="AnimatedSprite" parent="Tutorial" index="2"]
 visible = false
+position = Vector2( 72.0813, 141.493 )
 frames = SubResource( 2 )
-frame = 3
+frame = 22
 speed_scale = 10.0
 playing = true
-centered = false

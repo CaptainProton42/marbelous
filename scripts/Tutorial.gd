@@ -8,6 +8,7 @@ func _on_shape_created(shape):
 		shape.connect("removed", self, "_on_shape_removed")
 		$HowToDraw.visible = false
 		$HowToRemove.visible = true
+		$HowToRemove.global_position = shape.global_position
 
 func _on_shape_removed():
 	$HowToDraw.visible = true
