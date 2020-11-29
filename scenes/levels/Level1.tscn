@@ -619,6 +619,7 @@ position = Vector2( 1104.62, 179.454 )
 
 [node name="GoalTrigger" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1100.26, 550.129 )
+collectibles_needed = 3
 
 [node name="volume" parent="." instance=ExtResource( 10 )]
 position = Vector2( 32, -24 )
