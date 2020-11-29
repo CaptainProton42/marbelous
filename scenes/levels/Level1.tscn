@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/LineDrawing2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/ShapeSpawner.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scripts/Level.gd" type="Script" id=7]
 [ext_resource path="res://scenes/CollectibleNote.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/GoalTrigger.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/ui/volume_slider.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
@@ -38,6 +39,9 @@ position = Vector2( -90.6202, -55.9951 )
 scale = Vector2( 1.08121, 1192.89 )
 texture = SubResource( 2 )
 centered = false
+
+[node name="volume" parent="." instance=ExtResource( 10 )]
+position = Vector2( 32, -24 )
 
 [node name="MarbleSpawner" parent="." instance=ExtResource( 3 )]
 position = Vector2( 116.736, 72.96 )
