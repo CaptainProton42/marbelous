@@ -39,7 +39,6 @@ func _enter_state(new_state : int) -> void:
 			emit_signal("triggered")
 
 	_state = new_state
-	print("enter state", _state)
 	emit_signal("entered_state", _state)
 
 func check_marble_for_win_condition(marble : Node) -> void:
