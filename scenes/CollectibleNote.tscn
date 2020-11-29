@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/textures/collectable.png" type="Texture" id=1]
 [ext_resource path="res://scripts/classes/Collectible.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/common/collect 01.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/audio/common/collect 03.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/common/collect 02.ogg" type="AudioStream" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 17.1019
@@ -39,6 +42,7 @@ tracks/1/keys = {
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 2 )
+collect_sounds = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ]
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -1.08634, 0.0724316 )
@@ -51,4 +55,6 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/pickup = SubResource( 2 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+bus = "collect"
