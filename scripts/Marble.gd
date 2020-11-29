@@ -49,6 +49,8 @@ func _enter_state(p_state : int) -> void:
 #			visible = true
 			$Sprite.visible = true
 			$CollisionShape2D.disabled = false
+			_collected = []
+			_collected_nodes = []
 
 	_state = p_state
 	emit_signal("entered_state", self, _state)
@@ -92,3 +94,6 @@ func collect(collectible : Node):
 	if not collectible in _collected_nodes:
 		_collected_nodes.append(collectible)
 		_collected[collectible.type] += 1
+
+func get_collected(type : int) -> int:
+	return _collected[type]
