@@ -61,7 +61,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D10"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="KillArea"]
@@ -70,7 +69,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D3"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="KillArea"]
@@ -79,7 +77,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D9"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="KillArea"]
@@ -88,7 +85,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D4"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="KillArea"]
@@ -97,7 +93,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D5"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="KillArea"]
@@ -106,7 +101,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D6"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="KillArea"]
@@ -115,7 +109,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D7"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="KillArea"]
@@ -124,7 +117,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D8"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="KillArea"]
@@ -133,7 +125,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle2" type="Sprite" parent="KillArea/CollisionPolygon2D2"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KillArea"]
@@ -142,7 +133,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle" type="Sprite" parent="KillArea/CollisionPolygon2D"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="KillArea"]
@@ -151,7 +141,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D11"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="KillArea"]
@@ -160,7 +149,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D12"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="KillArea"]
@@ -169,7 +157,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D13"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="KillArea"]
@@ -178,7 +165,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D14"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D15" type="CollisionPolygon2D" parent="KillArea"]
@@ -187,7 +173,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D15"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D17" type="CollisionPolygon2D" parent="KillArea"]
@@ -196,7 +181,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D17"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D21" type="CollisionPolygon2D" parent="KillArea"]
@@ -205,7 +189,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D21"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D19" type="CollisionPolygon2D" parent="KillArea"]
@@ -215,7 +198,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D19"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D20" type="CollisionPolygon2D" parent="KillArea"]
@@ -225,7 +207,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D20"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D22" type="CollisionPolygon2D" parent="KillArea"]
@@ -235,7 +216,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D22"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D31" type="CollisionPolygon2D" parent="KillArea"]
@@ -245,7 +225,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D31"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D32" type="CollisionPolygon2D" parent="KillArea"]
@@ -255,7 +234,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D32"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D33" type="CollisionPolygon2D" parent="KillArea"]
@@ -265,7 +243,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D33"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D34" type="CollisionPolygon2D" parent="KillArea"]
@@ -275,7 +252,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D34"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D35" type="CollisionPolygon2D" parent="KillArea"]
@@ -285,7 +261,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D35"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D36" type="CollisionPolygon2D" parent="KillArea"]
@@ -295,7 +270,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle2" type="Sprite" parent="KillArea/CollisionPolygon2D36"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D37" type="CollisionPolygon2D" parent="KillArea"]
@@ -305,7 +279,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle" type="Sprite" parent="KillArea/CollisionPolygon2D37"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D38" type="CollisionPolygon2D" parent="KillArea"]
@@ -315,7 +288,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D38"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D39" type="CollisionPolygon2D" parent="KillArea"]
@@ -325,7 +297,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D39"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D40" type="CollisionPolygon2D" parent="KillArea"]
@@ -335,7 +306,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D40"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D41" type="CollisionPolygon2D" parent="KillArea"]
@@ -345,7 +315,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D41"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D42" type="CollisionPolygon2D" parent="KillArea"]
@@ -355,7 +324,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D42"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D44" type="CollisionPolygon2D" parent="KillArea"]
@@ -365,7 +333,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D44"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D45" type="CollisionPolygon2D" parent="KillArea"]
@@ -375,7 +342,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D45"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="KillArea"]
@@ -385,7 +351,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D18"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D23" type="CollisionPolygon2D" parent="KillArea"]
@@ -395,7 +360,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D23"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D24" type="CollisionPolygon2D" parent="KillArea"]
@@ -405,7 +369,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D24"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D25" type="CollisionPolygon2D" parent="KillArea"]
@@ -415,7 +378,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D25"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D26" type="CollisionPolygon2D" parent="KillArea"]
@@ -425,7 +387,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D26"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D27" type="CollisionPolygon2D" parent="KillArea"]
@@ -435,7 +396,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D27"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D28" type="CollisionPolygon2D" parent="KillArea"]
@@ -445,7 +405,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D28"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D29" type="CollisionPolygon2D" parent="KillArea"]
@@ -455,7 +414,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D29"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D30" type="CollisionPolygon2D" parent="KillArea"]
@@ -465,7 +423,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D30"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D46" type="CollisionPolygon2D" parent="KillArea"]
@@ -475,7 +432,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D46"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D47" type="CollisionPolygon2D" parent="KillArea"]
@@ -485,7 +441,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D47"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D48" type="CollisionPolygon2D" parent="KillArea"]
@@ -495,7 +450,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D48"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D49" type="CollisionPolygon2D" parent="KillArea"]
@@ -505,7 +459,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D49"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D50" type="CollisionPolygon2D" parent="KillArea"]
@@ -515,7 +468,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D50"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D51" type="CollisionPolygon2D" parent="KillArea"]
@@ -525,7 +477,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D51"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D52" type="CollisionPolygon2D" parent="KillArea"]
@@ -535,7 +486,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D52"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D53" type="CollisionPolygon2D" parent="KillArea"]
@@ -545,7 +495,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D53"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D54" type="CollisionPolygon2D" parent="KillArea"]
@@ -555,7 +504,6 @@ scale = Vector2( 0.217638, 0.217638 )
 polygon = PoolVector2Array( -296.66, -2.84613, -186.476, -104.555, -188.595, -189.312, -110.195, -187.193, 2.10809, -291.02, 101.698, -189.312, 194.93, -189.312, 190.692, -104.555, 290.282, -2.84613, 292.401, 295.922, -0.0108032, 300.16, -300.898, 295.922 )
 
 [node name="obstacle3" type="Sprite" parent="KillArea/CollisionPolygon2D54"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 6 )
 
 [node name="KillArea2" parent="." instance=ExtResource( 5 )]
