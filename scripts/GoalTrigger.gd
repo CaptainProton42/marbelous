@@ -25,7 +25,7 @@ func _ready() -> void:
 func _on_body_entered(body) -> void:
 	if _state == State.OPEN:
 		if body in _marbles_with_win_condition:
-			emit_signal("triggered")
+			_enter_state(State.TRIGGERED)
 
 func _enter_state(new_state : int) -> void:
 	match new_state:
@@ -34,22 +34,26 @@ func _enter_state(new_state : int) -> void:
 		State.OPEN:
 			$AnimationPlayer.play("open")
 		State.TRIGGERED:
-			# Play triggered animation
-			pass
+			$AnimationTree.active = false
+			$AnimationPlayer.play("trigger")
+			emit_signal("triggered")
 
 	_state = new_state
+	print("enter state", _state)
 	emit_signal("entered_state", _state)
 
 func check_marble_for_win_condition(marble : Node) -> void:
-	if marble.get_collected(collectible_type) == collectibles_needed:
-		if not marble in _marbles_with_win_condition:
-			_marbles_with_win_condition.append(marble)
-			
-	if _marbles_with_win_condition.size() > 0:
-		_enter_state(State.OPEN)
+	if _state == State.CLOSED:
+		if marble.get_collected(collectible_type) == collectibles_needed:
+			if not marble in _marbles_with_win_condition:
+				_marbles_with_win_condition.append(marble)
+				
+		if _marbles_with_win_condition.size() > 0:
+			_enter_state(State.OPEN)
 
 func remove_marble(marble : Node) -> void:
-	_marbles_with_win_condition.erase(marble)
-	
-	if _marbles_with_win_condition.size() == 0:
-		_enter_state(State.CLOSED)
+	if _state == State.OPEN:
+		_marbles_with_win_condition.erase(marble)
+		
+		if _marbles_with_win_condition.size() == 0:
+			_enter_state(State.CLOSED)
