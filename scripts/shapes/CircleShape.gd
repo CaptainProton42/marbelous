@@ -23,6 +23,7 @@ func _ready():
 	$Texture/AnimationPlayer.play("create")
 
 func remove():
+	emit_signal("removed")
 	$Texture/AnimationPlayer.play("remove")
 	yield($Texture/AnimationPlayer, "animation_finished")
 	queue_free()

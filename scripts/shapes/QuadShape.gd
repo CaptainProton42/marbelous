@@ -29,6 +29,7 @@ func _ready():
 	$Polygon2D/AnimationPlayer.play("create")
 
 func remove():
+	emit_signal("removed")
 	$Polygon2D/AnimationPlayer.play("remove")
 	yield($Polygon2D/AnimationPlayer, "animation_finished")
 	queue_free()
