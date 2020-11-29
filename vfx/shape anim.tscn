@@ -9,7 +9,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 1.2, -0.25, 0, 0.11, -0.148266, 0.88, -0.29, 0.0425248, 0.25, 0 ),
+"points": PoolRealArray( 2, -0.25, 0, 0.11, -0.148266, 0.88, -0.29, 0.0425248, 0.25, 0 ),
 "times": PoolRealArray( 0, 1 )
 }
 
@@ -27,6 +27,8 @@ tracks/0/keys = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer"]
+
 autoplay = "init"
 anims/glow = SubResource( 1 )
 anims/init = SubResource( 2 )
+

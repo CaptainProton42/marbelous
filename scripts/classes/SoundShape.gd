@@ -2,6 +2,9 @@ extends StaticBody2D
 class_name SoundShape
 
 export var audio_stream : AudioStream
+export var hit_displacement_amp : float = 0.0 # Displace the shape slightly when hit
+
+var last_hit_normal : Vector2 = Vector2(0.0, 0.0)
 
 var pitch_quantization = true
 var semitones = [-12, -9, -7, -5, -2, 1, 3, 5, 7, 10, 12]
@@ -18,22 +21,29 @@ func semi_to_pitch(semitones):
 	return pow(2, semitones/12.0)
 
 func _ready():
-	$AudioStreamPlayer.stream = audio_stream
+	$AudioStreamPlayer2D.stream = audio_stream
 	for s in semitones:
 		steps.append(semi_to_pitch(s))
 
-func emit_sound(pitch : float = 1.0):
+func hit(n : Vector2) -> void:
+	last_hit_normal = n
+	emit_sound()
+	play_animation()
+
+func play_animation():
+	pass
+
+func emit_sound():
 	var area = get_area()
 	
 	if area > 0:
 		var continuous_pitch = area * pitch_scaling
 		var discrete_pitch = quantize_pitch(continuous_pitch)
-		$AudioStreamPlayer.pitch_scale = 1/discrete_pitch
+		$AudioStreamPlayer2D.pitch_scale = 1/discrete_pitch
 	else:
 		printerr("Shape area is 0")
 	
-#	$AudioStreamPlayer.pitch_scale = pitch
-	$AudioStreamPlayer.play()
+	$AudioStreamPlayer2D.play()
 
 
 func quantize_pitch(pitch):
@@ -51,12 +61,12 @@ func quantize_pitch(pitch):
 func release():
 	var tween = Tween.new()
 	add_child(tween)
-	$AudioStreamPlayer.volume_db
+	$AudioStreamPlayer2D.volume_db
 	tween.interpolate_property(
-		$AudioStreamPlayer, "volume_db", 
-		$AudioStreamPlayer.volume_db, -80, 1.0, 
+		$AudioStreamPlayer2D, "volume_db", 
+		$AudioStreamPlayer2D.volume_db, -80, 1.0, 
 		Tween.TRANS_CIRC)
 	tween.start()
 
-func hit():
+func remove():
 	pass

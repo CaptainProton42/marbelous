@@ -29,12 +29,20 @@ func _ready():
 	connect("gui_input", self, "_on_gui_input")
 
 func _on_gui_input(event):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
-		if event.pressed:
-			_enter_draw_mode()
-		else:
-			if (_pen_down):
-				_current_drawing._close_shape()
+	if event is InputEventMouseButton:	
+		if event.button_index == BUTTON_LEFT:
+			if event.pressed:
+				_enter_draw_mode()
+			else:
+				if (_pen_down):
+					_current_drawing._close_shape()
+		elif event.button_index == BUTTON_RIGHT and event.pressed:
+			var space_state = get_world_2d().direct_space_state
+			var result = space_state.intersect_point(get_global_mouse_position())
+
+			if result.size() > 0:
+				if result[0].collider.get_class() == "SoundShape":
+					result[0].collider.remove()
 
 func _on_shape_completed(start_point : int):
 	var corners = _current_drawing.get_corners()
