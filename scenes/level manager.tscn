@@ -38,11 +38,11 @@ __meta__ = {
 level = ExtResource( 3 )
 
 [node name="level 1" type="Button" parent="levels"]
-margin_left = 5.03967
+margin_left = 1.03967
 margin_top = 377.976
-margin_right = 299.04
+margin_right = 295.04
 margin_bottom = 576.976
-text = "Sandbox"
+text = "level 1"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
