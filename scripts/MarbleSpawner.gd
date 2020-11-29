@@ -11,6 +11,8 @@ var _marbles_alive : int = 0
 var _spawn_timer : float = 0.0
 var _marbles_queued : Array = []
 
+var _disabled : bool = false
+
 
 onready var marble_tscn = preload("res://scenes/Marble.tscn")
 
@@ -36,20 +38,27 @@ func _on_marble_entered_state(state : int, marble) -> void:
 			# Respawn the marble instantly
 			_marbles_alive -= 1
 			_spawn_marble(marble)
+		marble.State.IN_GOAL:
+			disable()
 
 func _spawn_marble(marble) -> void:
 	# Try to spawn the marble. If too early, put it in queue
-	if _spawn_timer <= 0.0:
-		$AnimationPlayer.play("spawn")
-		marble.revive()
-		_spawn_timer = min_time_between_spawns
-		_marbles_alive += 1
-	else:
-		_marbles_queued.push_back(marble)
+	if not _disabled:
+		if _spawn_timer <= 0.0:
+			$AnimationPlayer.play("spawn")
+			marble.revive()
+			_spawn_timer = min_time_between_spawns
+			_marbles_alive += 1
+		else:
+			_marbles_queued.push_back(marble)
 
 func _process(delta : float) -> void:
-	if _spawn_timer <= 0.0 and _marbles_queued.size() > 0:
-		_spawn_marble(_marbles_queued.back())
-		_marbles_queued.pop_back()
-		
-	_spawn_timer -= delta
+	if not _disabled:
+		if _spawn_timer <= 0.0 and _marbles_queued.size() > 0:
+			_spawn_marble(_marbles_queued.back())
+			_marbles_queued.pop_back()
+			
+		_spawn_timer -= delta
+
+func disable():
+	_disabled = true

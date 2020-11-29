@@ -8,7 +8,8 @@ signal collected
 enum State {
 	ALIVE, 
 	DEAD,
-	SHOULD_RESET
+	SHOULD_RESET,
+	IN_GOAL
 }
 
 var _state = State.DEAD
@@ -59,6 +60,14 @@ func _enter_state(p_state : int) -> void:
 			$Sprite.visible = true
 			$CollisionShape2D.disabled = false
 
+		State.IN_GOAL:
+			if _state != State.IN_GOAL:
+				$AnimationPlayer.play("in_goal")
+				set_sleeping(true)
+				$CollisionShape2D.disabled = true
+				yield($AnimationPlayer, "animation_finished")
+				visible = false
+
 	_state = p_state
 	emit_signal("entered_state", _state)
 	$Label.text = State.keys()[_state]
@@ -104,3 +113,6 @@ func collect(collectible : Node):
 
 func get_collected(type : int) -> int:
 	return _collected[type]
+
+func reach_goal():
+	_enter_state(State.IN_GOAL)

@@ -34,6 +34,7 @@ func _ready() -> void:
 func _on_body_entered(body) -> void:
 	if _state == State.OPEN:
 		if body in _marbles_with_win_condition:
+			body.reach_goal()
 			_enter_state(State.TRIGGERED)
 
 func _enter_state(new_state : int) -> void:
