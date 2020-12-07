@@ -23,13 +23,16 @@ func get_class() -> String:
 
 func _ready() -> void:
 	connect("body_entered", self, "_on_body_entered")
-
-	# Initialize progress bar
-	for i in range(collectibles_needed):
-		var indicator = collectible_progress_indicator_tscn.instance()
-		indicator.set_fill(false)
-		indicator.position.x = 20 * i - 0.5 * 20 * (collectibles_needed - 1)
-		$Progress.add_child(indicator)
+	
+	if collectibles_needed == 0:
+		_enter_state(State.OPEN)
+	else:
+		# Initialize progress bar
+		for i in range(collectibles_needed):
+			var indicator = collectible_progress_indicator_tscn.instance()
+			indicator.set_fill(false)
+			indicator.position.x = 20 * i - 0.5 * 20 * (collectibles_needed - 1)
+			$Progress.add_child(indicator)
 
 func _on_body_entered(body) -> void:
 	if _state == State.OPEN:
@@ -38,6 +41,12 @@ func _on_body_entered(body) -> void:
 			_enter_state(State.TRIGGERED)
 		else:
 			$fail.play()
+
+func on_marble_death():
+	if collectibles_needed == 0:
+		return
+	else:
+		_enter_state(State.CLOSED)
 
 func _enter_state(new_state : int) -> void:
 	match new_state:
@@ -77,4 +86,4 @@ func remove_marble(marble : Node) -> void:
 		_marbles_with_win_condition.erase(marble)
 		
 		if _marbles_with_win_condition.size() == 0:
-			_enter_state(State.CLOSED)
+			on_marble_death()

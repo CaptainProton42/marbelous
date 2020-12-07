@@ -19,7 +19,7 @@ func load_level(level):
 	loaded_level = level.instance()
 	loaded_level.connect("level_cleared", self, "on_level_cleared")
 	add_child(loaded_level)
-	
+
 func _input(event):
 	if event is InputEventKey and event.is_pressed() and event.scancode == KEY_ESCAPE:
 		clear_level()

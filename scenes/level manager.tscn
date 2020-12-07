@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/level button.gd" type="Script" id=1]
 [ext_resource path="res://scenes/level manager.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/textures/marbelous_logo.png" type="Texture" id=6]
 [ext_resource path="res://ui.theme.tres" type="Theme" id=7]
 [ext_resource path="res://assets/fonts/level complete.font.tres" type="DynamicFont" id=8]
+[ext_resource path="res://scenes/levels/Level0.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
@@ -89,7 +90,7 @@ __meta__ = {
 }
 
 [node name="sandbox" type="Button" parent="levels"]
-margin_right = 271.0
+margin_right = 178.0
 margin_bottom = 182.0
 size_flags_horizontal = 3
 custom_styles/hover = SubResource( 3 )
@@ -104,8 +105,24 @@ level = ExtResource( 3 )
 
 [node name="level 1" type="Button" parent="levels"]
 modulate = Color( 1.3, 1.3, 1.3, 1 )
-margin_left = 371.0
-margin_right = 642.0
+margin_left = 278.0
+margin_right = 457.0
+margin_bottom = 182.0
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+text = "level 0"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+level = ExtResource( 9 )
+
+[node name="level 2" type="Button" parent="levels"]
+modulate = Color( 1.3, 1.3, 1.3, 1 )
+margin_left = 557.0
+margin_right = 735.0
 margin_bottom = 182.0
 size_flags_horizontal = 3
 custom_styles/hover = SubResource( 6 )
@@ -120,7 +137,7 @@ level = ExtResource( 4 )
 
 [node name="tutorial" type="Button" parent="levels"]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
-margin_left = 742.0
+margin_left = 835.0
 margin_right = 1014.0
 margin_bottom = 182.0
 size_flags_horizontal = 3
@@ -203,5 +220,6 @@ __meta__ = {
 }
 [connection signal="pressed" from="levels/sandbox" to="levels/sandbox" method="on_pressed"]
 [connection signal="pressed" from="levels/level 1" to="levels/level 1" method="on_pressed"]
+[connection signal="pressed" from="levels/level 2" to="levels/level 2" method="on_pressed"]
 [connection signal="pressed" from="levels/tutorial" to="levels/tutorial" method="on_pressed"]
 [connection signal="pressed" from="win/HBoxContainer/main" to="." method="go_to_main_menu"]

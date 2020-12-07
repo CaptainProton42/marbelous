@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/fonts/button.font.tres" type="DynamicFont" id=1]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
 
 [resource]
@@ -16,5 +16,5 @@ Button/fonts/font = null
 Button/styles/disabled = null
 Button/styles/focus = null
 Button/styles/hover = null
-Button/styles/normal = SubResource( 3 )
+Button/styles/normal = SubResource( 1 )
 Button/styles/pressed = null
