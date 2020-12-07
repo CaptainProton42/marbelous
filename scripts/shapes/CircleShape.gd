@@ -1,6 +1,7 @@
 extends SoundShape
 
 var _area : float = 0.0
+var decaying = false
 
 func set_radius(radius : float) -> void:
 	$Texture/Scale.scale = Vector2(radius, radius)
@@ -21,10 +22,25 @@ func _process(_delta):
 
 func _ready():
 	$Texture/AnimationPlayer.play("create")
+	
+	if decaying:
+		start_shape_decay()
 
 func set_invisible(invisible):
 	$Texture/AnimationPlayer.get_animation("create").track_set_enabled(1, invisible)
 	$Texture/AnimationPlayer.get_animation("hit").track_set_enabled(3, invisible)
+
+
+func start_shape_decay():
+	var tween = $tween
+	printt(tween, $Texture/Scale/Sprite.self_modulate.v)
+	tween.interpolate_property(
+		$Texture/Scale/Sprite, "self_modulate:v",
+		null, 0,
+		4.0, Tween.TRANS_CIRC, Tween.EASE_IN
+	)
+	tween.start()
+
 
 func remove():
 	emit_signal("removed")

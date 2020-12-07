@@ -19,6 +19,12 @@ func _ready() -> void:
 func add_shape(shape):
 	shape_anchor.add_child(shape)
 	shape.set_invisible(invisible_shapes)
+	
+	for decay_area in get_tree().get_nodes_in_group("Decay areas"):
+		if decay_area.overlaps_body(shape):
+			print("shape is in decay area")
+		else:
+			print("shape is NOT in decay area")
 
 func _on_circle_created(position : Vector2, radius : float) -> void:
 	var circle_shape = circle_shape_tscn.instance()

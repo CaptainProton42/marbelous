@@ -134,6 +134,12 @@ escape={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="shape"
+2d_physics/layer_2="marble"
+2d_physics/layer_3="decay"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

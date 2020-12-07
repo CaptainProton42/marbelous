@@ -58,7 +58,7 @@ func _on_shape_completed(start_point : int):
 		emit_signal("circle_created", position, radius)
 	elif corner_count == 3:
 		emit_signal("triangle_created", corners)
-	elif corner_count == 4:	
+	elif corner_count == 4:
 		emit_signal("quad_created", corners)
 
 	_exit_draw_mode()
