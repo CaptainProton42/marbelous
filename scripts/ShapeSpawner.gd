@@ -37,6 +37,7 @@ func _on_circle_created(position : Vector2, radius : float) -> void:
 func _on_triangle_created(corners : PoolVector2Array) -> void:
 	var triangle_shape = triangle_shape_tscn.instance()
 	triangle_shape.set_corners(corners)
+	add_shape(triangle_shape)
 
 	emit_signal("shape_created", triangle_shape)
 
