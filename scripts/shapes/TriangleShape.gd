@@ -27,6 +27,10 @@ func _process(_delta):
 func _ready():
 	$Polygon2D/AnimationPlayer.play("create")
 
+func set_invisible(invisible):
+	$Polygon2D/AnimationPlayer.get_animation("create").track_set_enabled(1, invisible)
+	$Polygon2D/AnimationPlayer.get_animation("hit").track_set_enabled(3, invisible)
+
 func remove():
 	emit_signal("removed")
 	$Polygon2D/AnimationPlayer.play("remove")

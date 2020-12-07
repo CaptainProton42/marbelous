@@ -22,6 +22,10 @@ func _process(_delta):
 func _ready():
 	$Texture/AnimationPlayer.play("create")
 
+func set_invisible(invisible):
+	$Texture/AnimationPlayer.get_animation("create").track_set_enabled(1, invisible)
+	$Texture/AnimationPlayer.get_animation("hit").track_set_enabled(3, invisible)
+
 func remove():
 	emit_signal("removed")
 	$Texture/AnimationPlayer.play("remove")

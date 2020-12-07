@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/shapes/CircleShape.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/circle_shape.png" type="Texture" id=2]
 [ext_resource path="res://vfx/shape material.tres" type="Material" id=3]
 [ext_resource path="res://assets/audio/set 1/set 1 - circle.ogg" type="AudioStream" id=4]
 [ext_resource path="res://soundshape.physicsmaterial.tres" type="PhysicsMaterial" id=5]
+[ext_resource path="res://vfx/shape invisibility.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "create"
-length = 0.3
+length = 0.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -21,6 +22,16 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("invisbility")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"clips": PoolStringArray( "burst" ),
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=2]
@@ -56,6 +67,16 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "animation"
+tracks/3/path = NodePath("invisbility")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": PoolStringArray( "burst" ),
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=3]
@@ -135,7 +156,6 @@ audio_stream = ExtResource( 4 )
 
 [node name="Texture" type="Node2D" parent="."]
 modulate = Color( 2, 2, 2, 1 )
-scale = Vector2( 1e-05, 1e-05 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Texture"]
 autoplay = "init"
@@ -150,6 +170,8 @@ scale = Vector2( 1e-05, 1e-05 )
 [node name="Sprite" type="Sprite" parent="Texture/Scale"]
 scale = Vector2( 0.004, 0.004 )
 texture = ExtResource( 2 )
+
+[node name="invisbility" parent="Texture" instance=ExtResource( 6 )]
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource( 5 )
