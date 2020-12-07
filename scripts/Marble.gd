@@ -16,6 +16,9 @@ var _state = State.DEAD
 var _collected : PoolIntArray = [] # Counts how many collectibles are picked up (per type)
 var _collected_nodes : Array = [] # We need to keep track of which collectibles have aleady been picked up
 
+func init():
+	_enter_state(State.SHOULD_RESET)
+
 func revive() -> void:
 	_enter_state(State.SHOULD_RESET)
 
@@ -53,6 +56,9 @@ func _enter_state(p_state : int) -> void:
 				c.enable()
 
 			_reset_collectibles()
+			
+			queue_free()
+			
 			
 		State.SHOULD_RESET:
 			set_sleeping(false)

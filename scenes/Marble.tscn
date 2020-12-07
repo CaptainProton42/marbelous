@@ -39,7 +39,9 @@ tracks/1/keys = {
 "values": [ Vector2( -0.212576, -0.212576 ), Vector2( 0, 0 ) ]
 }
 
-[node name="Marble" type="RigidBody2D"]
+[node name="Marble" type="RigidBody2D" groups=[
+"Marbles",
+]]
 collision_layer = 2
 gravity_scale = 0.5
 contacts_reported = 1

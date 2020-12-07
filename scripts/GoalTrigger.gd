@@ -36,9 +36,12 @@ func _ready() -> void:
 
 func _on_body_entered(body) -> void:
 	if _state == State.OPEN:
-		if body in _marbles_with_win_condition:
+		if body.is_in_group("Marbles"):
 			body.reach_goal()
 			_enter_state(State.TRIGGERED)
+#		if body in _marbles_with_win_condition:
+#			body.reach_goal()
+#			_enter_state(State.TRIGGERED)
 		else:
 			$fail.play()
 
