@@ -2,11 +2,16 @@
 
 extends Node2D
 
-enum Sync { MARBLE_DEATH, TIMER, MARBLE_DEATH_COUPLED }
+enum Sync { 
+	MARBLE_DEATH, 
+#	MARBLE_DEATH_COUPLED,
+	TIMER
+}
 
 export var max_marbles_alive : int = 1
 export var start_velocity : Vector2 = Vector2(0.0, 0.0)
 export var min_time_between_spawns : float = 5.0
+export var fixed_timer : float = 4.0
 export (Sync) var synchronisation
 
 var _marbles : Array = []
@@ -30,6 +35,12 @@ func _ready():
 	if start_velocity.length() > 0.0:
 		$SpriteAnchor.rotation = start_velocity.angle_to(Vector2(0.0, -1.0))
 	
+	$timer.wait_time = fixed_timer
+	
+	if synchronisation != Sync.TIMER:
+		var mat = $SpriteAnchor/Sprite.get_material()
+		mat.set_shader_param("y", 0)
+	
 	_spawn_marble()
 
 func _on_marble_entered_state(state : int, marble) -> void:
@@ -37,6 +48,7 @@ func _on_marble_entered_state(state : int, marble) -> void:
 		marble.State.DEAD:
 			# Respawn the marble instantly
 			_spawn_marble()
+			
 		marble.State.IN_GOAL:
 			disable()
 
@@ -55,6 +67,7 @@ func _spawn_marble() -> void:
 
 	$AnimationPlayer.play("spawn")
 	_spawn_timer = min_time_between_spawns
+	$timer.start()
 
 func _process(delta : float) -> void:
 	if not _disabled:
@@ -68,6 +81,10 @@ func _process(delta : float) -> void:
 					_spawn_marble()
 			
 		_spawn_timer -= delta
+	
+	if synchronisation == Sync.TIMER:
+		var mat = $SpriteAnchor/Sprite.get_material()
+		mat.set_shader_param("y", $timer.time_left / $timer.wait_time)
 
 func disable():
 	_disabled = true
@@ -78,3 +95,7 @@ func get_marbles_alive():
 		if c.is_in_group("Marbles"):
 			sum += 1
 	return sum
+
+func _on_timer_timeout():
+	if synchronisation == Sync.TIMER:
+		_spawn_marble()
