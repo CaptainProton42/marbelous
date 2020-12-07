@@ -2,7 +2,7 @@ extends Node2D
 
 signal shape_created
 
-export var invisible_shapes = false
+var invisible_shapes = false
 
 onready var drawing = get_node("LineDrawing2D")
 onready var shape_anchor = get_node("ShapeAnchor")

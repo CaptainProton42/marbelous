@@ -84,7 +84,7 @@ func _process(delta : float) -> void:
 	
 	if synchronisation == Sync.TIMER:
 		var mat = $SpriteAnchor/Sprite.get_material()
-		mat.set_shader_param("y", $timer.time_left / $timer.wait_time)
+		mat.set_shader_param("y", 1 - $timer.time_left / $timer.wait_time)
 
 func disable():
 	_disabled = true

@@ -4,11 +4,9 @@
 [ext_resource path="res://scenes/MarbleSpawner.tscn" type="PackedScene" id=2]
 
 [node name="Level" instance=ExtResource( 1 )]
+invisible_shapes = true
 
 [node name="MarbleSpawner" parent="." index="2" instance=ExtResource( 2 )]
 position = Vector2( 425.153, 307.849 )
 fixed_timer = 2.0
 synchronisation = 1
-
-[node name="ShapeSpawner" parent="." index="3"]
-invisible_shapes = true

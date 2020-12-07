@@ -8,6 +8,8 @@ var goals : Array = [] #  holds all goals
 
 var triggered_goals : Array = []
 
+export var invisible_shapes = false
+
 func _ready():
 	for c in get_children():
 		if c.get_class() == "GoalTrigger":
@@ -21,6 +23,8 @@ func _ready():
 
 	for g in goals:
 		g.connect("triggered", self, "_on_goal_triggered", [g])
+	
+	$ShapeSpawner.invisible_shapes = invisible_shapes
 
 func _update_goal_progress_bar(g : Node):
 	var max_collected_count = 0

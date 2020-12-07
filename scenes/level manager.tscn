@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scenes/level button.gd" type="Script" id=1]
 [ext_resource path="res://scenes/level manager.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://scenes/levels/Level0.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/levels/Level verybasic.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/levels/Level 2sides 1note wwait.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/levels/Level invisible shapes.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
@@ -82,8 +83,8 @@ texture = ExtResource( 6 )
 modulate = Color( 1.1, 1.1, 1.1, 1 )
 margin_left = 133.0
 margin_top = 375.0
-margin_right = 1147.0
-margin_bottom = 557.0
+margin_right = 1170.0
+margin_bottom = 650.0
 theme = ExtResource( 7 )
 columns = 3
 __meta__ = {
@@ -91,7 +92,7 @@ __meta__ = {
 }
 
 [node name="sandbox" type="Button" parent="levels"]
-margin_right = 335.0
+margin_right = 343.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
 custom_styles/hover = SubResource( 3 )
@@ -104,26 +105,10 @@ __meta__ = {
 }
 level = ExtResource( 3 )
 
-[node name="level 0" type="Button" parent="levels"]
-modulate = Color( 1.3, 1.3, 1.3, 1 )
-margin_left = 339.0
-margin_right = 674.0
-margin_bottom = 27.0
-size_flags_horizontal = 3
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
-text = "level 0"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-level = ExtResource( 9 )
-
 [node name="very basic" type="Button" parent="levels"]
 modulate = Color( 1.3, 1.3, 1.3, 1 )
-margin_left = 678.0
-margin_right = 1013.0
+margin_left = 347.0
+margin_right = 690.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
 custom_styles/hover = SubResource( 6 )
@@ -136,17 +121,32 @@ __meta__ = {
 }
 level = ExtResource( 10 )
 
+[node name="level 0" type="Button" parent="levels"]
+modulate = Color( 1.3, 1.3, 1.3, 1 )
+margin_left = 694.0
+margin_right = 1037.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+text = "level 0"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+level = ExtResource( 9 )
+
 [node name="split" type="Button" parent="levels"]
-visible = false
 modulate = Color( 1.3, 1.3, 1.3, 1 )
 margin_top = 31.0
-margin_right = 335.0
+margin_right = 343.0
 margin_bottom = 58.0
 size_flags_horizontal = 3
 custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
-text = "level split"
+text = "level split (wip)"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -155,8 +155,9 @@ level = ExtResource( 11 )
 
 [node name="level 2" type="Button" parent="levels"]
 modulate = Color( 1.3, 1.3, 1.3, 1 )
+margin_left = 347.0
 margin_top = 31.0
-margin_right = 335.0
+margin_right = 690.0
 margin_bottom = 58.0
 size_flags_horizontal = 3
 custom_styles/hover = SubResource( 6 )
@@ -169,12 +170,28 @@ __meta__ = {
 }
 level = ExtResource( 4 )
 
+[node name="invisible" type="Button" parent="levels"]
+modulate = Color( 1.3, 1.3, 1.3, 1 )
+margin_left = 694.0
+margin_top = 31.0
+margin_right = 1037.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+text = "invisibles"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+level = ExtResource( 12 )
+
 [node name="tutorial" type="Button" parent="levels"]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
-margin_left = 339.0
-margin_top = 31.0
-margin_right = 674.0
-margin_bottom = 58.0
+margin_top = 62.0
+margin_right = 343.0
+margin_bottom = 89.0
 size_flags_horizontal = 3
 custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 10 )
@@ -254,9 +271,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="levels/sandbox" to="levels/sandbox" method="on_pressed"]
-[connection signal="pressed" from="levels/level 0" to="levels/level 0" method="on_pressed"]
 [connection signal="pressed" from="levels/very basic" to="levels/very basic" method="on_pressed"]
+[connection signal="pressed" from="levels/level 0" to="levels/level 0" method="on_pressed"]
 [connection signal="pressed" from="levels/split" to="levels/split" method="on_pressed"]
 [connection signal="pressed" from="levels/level 2" to="levels/level 2" method="on_pressed"]
+[connection signal="pressed" from="levels/invisible" to="levels/invisible" method="on_pressed"]
 [connection signal="pressed" from="levels/tutorial" to="levels/tutorial" method="on_pressed"]
 [connection signal="pressed" from="win/HBoxContainer/main" to="." method="go_to_main_menu"]

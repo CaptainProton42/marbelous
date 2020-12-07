@@ -110,7 +110,7 @@ nodes/fragment/connections = PoolIntArray( 8, 0, 9, 0, 8, 0, 12, 0, 12, 0, 13, 0
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/y = 0.31
+shader_param/y = 0.428
 
 [sub_resource type="Animation" id=1]
 resource_name = "spawn"
