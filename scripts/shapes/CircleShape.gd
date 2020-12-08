@@ -7,7 +7,7 @@ func set_radius(radius : float) -> void:
 	$Texture/Scale.scale = Vector2(radius, radius)
 	$Collision.shape = $Collision.shape.duplicate()
 	$Collision.shape.radius = radius
-
+	
 	_area = PI * radius * radius
 
 func get_area() -> float:

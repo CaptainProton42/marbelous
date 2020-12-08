@@ -25,6 +25,8 @@ func add_shape(shape):
 			print("shape is in decay area")
 		else:
 			print("shape is NOT in decay area")
+		
+		printt(decay_area, decay_area.get_overlapping_bodies())
 
 func _on_circle_created(position : Vector2, radius : float) -> void:
 	var circle_shape = circle_shape_tscn.instance()
