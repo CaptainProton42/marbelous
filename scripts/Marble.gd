@@ -15,8 +15,13 @@ enum State {
 var _state = State.DEAD
 var _collected : PoolIntArray = [] # Counts how many collectibles are picked up (per type)
 var _collected_nodes : Array = [] # We need to keep track of which collectibles have aleady been picked up
+var lifetime = 5.0
 
-func init():
+func init(l = 0.0):
+	lifetime = l
+	if lifetime > 0:
+		$sentence.wait_time = lifetime
+		$sentence.start()
 	_enter_state(State.SHOULD_RESET)
 
 func revive() -> void:
@@ -57,7 +62,8 @@ func _enter_state(p_state : int) -> void:
 
 			_reset_collectibles()
 			
-			queue_free()
+			$death.connect("finished", self, "queue_free")
+#			queue_free()
 			
 			
 		State.SHOULD_RESET:
@@ -122,3 +128,7 @@ func get_collected(type : int) -> int:
 
 func reach_goal():
 	_enter_state(State.IN_GOAL)
+
+func on_sentence_timeout():
+	if lifetime > 0:
+		kill()

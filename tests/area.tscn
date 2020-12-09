@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://tests/area overlap test.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ShapeSpawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/MarbleSpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/KillArea frame.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/fxshape.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
@@ -56,18 +57,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="fxshape" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 3
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="fxshape"]
-polygon = PoolVector2Array( 392.655, 291.567, 439.746, 476.564, 878.693, 552.245, 957.737, 321.84, 947.647, 170.478, 542.335, 207.478, 409.473, 298.294 )
-
-[node name="Polygon2D" type="Polygon2D" parent="fxshape"]
-polygon = PoolVector2Array( 392.655, 291.567, 439.746, 476.564, 878.693, 552.245, 957.737, 321.84, 947.647, 170.478, 542.335, 207.478, 409.473, 298.294 )
-__meta__ = {
-"_editor_description_": ""
-}
+[node name="fxshape" parent="." instance=ExtResource( 5 )]
 
 [node name="ShapeSpawner" parent="." instance=ExtResource( 2 )]
 

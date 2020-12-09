@@ -13,6 +13,7 @@ export var start_velocity : Vector2 = Vector2(0.0, 0.0)
 export var min_time_between_spawns : float = 5.0
 export var fixed_timer : float = 4.0
 export (Sync) var synchronisation
+export (float) var marble_lifetime = 10.0
 
 var _marbles : Array = []
 #var _marbles_alive : int = 0
@@ -59,8 +60,8 @@ func _spawn_marble() -> void:
 	var marble = marble_tscn.instance()
 #	marble.connect("entered_state", self, "_on_marble_entered_state", [marble])
 	_marbles.append(marble)
-	marble.init()
 	add_child(marble)
+	marble.init(marble_lifetime)
 	
 	marble.connect("collected", get_parent(), "_on_marble_collected", [marble])
 	marble.connect("entered_state", get_parent(), "_on_marble_entered_state", [marble])

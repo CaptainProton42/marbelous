@@ -10,6 +10,8 @@ var triggered_goals : Array = []
 
 export var invisible_shapes = false
 
+signal marble_dead
+
 func _ready():
 	for c in get_children():
 		if c.get_class() == "GoalTrigger":
@@ -43,6 +45,7 @@ func get_marbles():
 
 func _on_marble_entered_state(state : int, marble : Node):
 	if state == marble.State.DEAD:
+		emit_signal("marble_dead")
 		for g in goals:
 			g.remove_marble(marble)
 			_update_goal_progress_bar(g)
@@ -51,3 +54,9 @@ func _on_goal_triggered(goal : Node) -> void:
 	triggered_goals.append(goal)
 	if triggered_goals.size() == goals.size():
 		emit_signal("level_cleared")
+
+func _on_fxshape_body_entered(body):
+	AudioServer.set_bus_effect_enabled(1, 2, true)
+
+func _on_fxshape_body_exited(body):
+	AudioServer.set_bus_effect_enabled(1, 2, false)

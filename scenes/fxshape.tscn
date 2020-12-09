@@ -1,0 +1,15 @@
+[gd_scene format=2]
+
+[node name="fxshape" type="Area2D"]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 392.655, 291.567, 439.746, 476.564, 878.693, 552.245, 957.737, 321.84, 947.647, 170.478, 542.335, 207.478, 409.473, 298.294 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.921569, 0.168627, 0.564706, 1 )
+polygon = PoolVector2Array( 392.655, 291.567, 439.746, 476.564, 878.693, 552.245, 957.737, 321.84, 947.647, 170.478, 542.335, 207.478, 409.473, 298.294 )
+__meta__ = {
+"_editor_description_": ""
+}

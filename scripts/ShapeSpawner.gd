@@ -49,3 +49,10 @@ func _on_quad_created(corners : PoolVector2Array) -> void:
 	add_shape(quad_shape)
 
 	emit_signal("shape_created", quad_shape)
+
+func clear_shapes():
+	for s in shape_anchor.get_children():
+		if s.has_method("remove"):
+			s.remove()
+		else:
+			s.queue_free()

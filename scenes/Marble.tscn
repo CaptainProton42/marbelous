@@ -86,3 +86,7 @@ bus = "death"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/in_goal = SubResource( 2 )
+
+[node name="sentence" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="sentence" to="." method="on_sentence_timeout"]
