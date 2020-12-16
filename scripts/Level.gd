@@ -56,7 +56,9 @@ func _on_goal_triggered(goal : Node) -> void:
 		emit_signal("level_cleared")
 
 func _on_fxshape_body_entered(body):
-	AudioServer.set_bus_effect_enabled(1, 2, true)
+	if body is Marble:
+		body.route_bus("distortion")
 
 func _on_fxshape_body_exited(body):
-	AudioServer.set_bus_effect_enabled(1, 2, false)
+	if body is Marble:
+		body.route_bus()
