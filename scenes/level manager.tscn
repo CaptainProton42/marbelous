@@ -1,12 +1,16 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scenes/level button.gd" type="Script" id=1]
 [ext_resource path="res://scenes/level manager.gd" type="Script" id=2]
-[ext_resource path="res://scenes/levels/Playground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Level.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/LevelBorder.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/levels/Tutorial.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/textures/marbelous_logo.png" type="Texture" id=6]
 [ext_resource path="res://ui.theme.tres" type="Theme" id=7]
 [ext_resource path="res://assets/fonts/level complete.font.tres" type="DynamicFont" id=8]
+[ext_resource path="res://scenes/MarbleSpawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/ui/volume Node2D.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/ui/volume slider.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/levels/Level FxShapes.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/level button.tscn" type="PackedScene" id=16]
 
@@ -17,25 +21,7 @@ colors = PoolColorArray( 0, 0, 0, 1 )
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.160784, 0.219608, 0.454902, 1 )
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.21, 0.578667, 1, 1 )
-
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.14902, 0.466667, 0.858824, 1 )
-
-[sub_resource type="StyleBoxFlat" id=9]
-bg_color = Color( 0.364706, 0.0313726, 0.45098, 1 )
-
-[sub_resource type="StyleBoxFlat" id=10]
-bg_color = Color( 0.681333, 0.088, 0.8, 1 )
-
-[sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0.490196, 0.0588235, 0.572549, 1 )
-
-[sub_resource type="Environment" id=12]
+[sub_resource type="Environment" id=10]
 background_mode = 4
 background_energy = 3.8
 glow_enabled = true
@@ -45,16 +31,66 @@ glow_hdr_threshold = 0.9
 glow_hdr_scale = 1.36
 glow_bicubic_upscale = true
 
-[sub_resource type="Gradient" id=13]
-colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 )
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.53, 0.2226, 0.381423, 1 )
 
-[sub_resource type="GradientTexture" id=14]
-gradient = SubResource( 13 )
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 1, 0, 0.533333, 1 )
 
 [sub_resource type="StyleBoxFlat" id=15]
-bg_color = Color( 0.152941, 0.478431, 0.862745, 1 )
+bg_color = Color( 0.921569, 0.168627, 0.564706, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.47, 0.451827, 0.1974, 1 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 1, 0.55, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.956863, 0.580392, 0.133333, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.160784, 0.219608, 0.454902, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.21, 0.578667, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.14902, 0.466667, 0.858824, 1 )
+
+[sub_resource type="PackedScene" id=6]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PoolIntArray(  ),
+"editable_instances": [  ],
+"names": PoolStringArray( "Level", "MarbleSpawner", "position", "start_velocity", "KillArea", "volume", "position" ),
+"node_count": 4,
+"node_paths": [ NodePath("."), NodePath("."), NodePath(".") ],
+"nodes": PoolIntArray( -1, -1, 2147483647, 0, -1, 0, 0, 1073741824, 0, 2147483647, 1048577, 1, 2, 2, 2, 3, 3, 0, 1073741825, 0, 2147483647, 1310724, 4, 0, 0, 1073741826, 0, 2147483647, 1572869, 5, 1, 6, 6, 0 ),
+"variants": [ ExtResource( 3 ), ExtResource( 9 ), Vector2( 179.952, 161.452 ), Vector2( 300, 0 ), ExtResource( 4 ), ExtResource( 10 ), Vector2( 26.939, -22.4492 ) ],
+"version": 2
+}
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.281283, 0.133, 0.35, 1 )
+
+[sub_resource type="StyleBoxFlat" id=21]
+bg_color = Color( 0.682353, 0.0862745, 0.8, 1 )
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.490196, 0.0588235, 0.572549, 1 )
+
+[sub_resource type="Gradient" id=11]
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=12]
+gradient = SubResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.152941, 0.478431, 0.862745, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
 bg_color = Color( 0.956863, 0.580392, 0.133333, 1 )
 
 [node name="level manager" type="Node2D"]
@@ -71,19 +107,68 @@ position = Vector2( 646.553, 118.258 )
 scale = Vector2( 0.453451, 0.453451 )
 texture = ExtResource( 6 )
 
-[node name="levels" type="GridContainer" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 10 )
+
+[node name="ui" type="Control" parent="."]
+margin_right = 1281.0
+margin_bottom = 719.0
+theme = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main" type="Control" parent="ui"]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="options" type="Button" parent="ui/main"]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+margin_left = 480.0
+margin_top = 553.628
+margin_right = 823.0
+margin_bottom = 580.628
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 18 )
+custom_styles/pressed = SubResource( 17 )
+custom_styles/normal = SubResource( 15 )
+text = "options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit" type="Button" parent="ui/main"]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+margin_left = 480.0
+margin_top = 625.628
+margin_right = 823.0
+margin_bottom = 652.628
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 19 )
+custom_styles/normal = SubResource( 16 )
+text = "quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levels" type="GridContainer" parent="ui/main"]
 modulate = Color( 1.1, 1.1, 1.1, 1 )
 margin_left = 133.0
 margin_top = 375.0
 margin_right = 1170.0
-margin_bottom = 650.0
+margin_bottom = 554.0
 theme = ExtResource( 7 )
 columns = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="sandbox" type="Button" parent="levels"]
+[node name="sandbox" type="Button" parent="ui/main/levels"]
 margin_right = 343.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
@@ -95,9 +180,9 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-level = ExtResource( 3 )
+level = SubResource( 6 )
 
-[node name="fxshape" type="Button" parent="levels"]
+[node name="fxshape" type="Button" parent="ui/main/levels"]
 margin_left = 347.0
 margin_right = 690.0
 margin_bottom = 27.0
@@ -112,15 +197,15 @@ __meta__ = {
 }
 level = ExtResource( 15 )
 
-[node name="tutorial" type="Button" parent="levels"]
+[node name="tutorial" type="Button" parent="ui/main/levels"]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 margin_left = 694.0
 margin_right = 1037.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 9 )
-custom_styles/pressed = SubResource( 10 )
-custom_styles/normal = SubResource( 11 )
+custom_styles/hover = SubResource( 20 )
+custom_styles/pressed = SubResource( 21 )
+custom_styles/normal = SubResource( 22 )
 text = "how to"
 script = ExtResource( 1 )
 __meta__ = {
@@ -128,10 +213,41 @@ __meta__ = {
 }
 level = ExtResource( 5 )
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 12 )
+[node name="options menu" type="Control" parent="ui"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="win" type="Control" parent="."]
+[node name="background" type="ColorRect" parent="ui/options menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="slider" parent="ui/options menu" instance=ExtResource( 11 )]
+margin_left = 627.229
+margin_top = 289.669
+margin_right = -630.771
+margin_bottom = -292.331
+
+[node name="close" type="Button" parent="ui/options menu"]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+margin_left = 480.0
+margin_top = 625.628
+margin_right = 823.0
+margin_bottom = 652.628
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 19 )
+custom_styles/normal = SubResource( 16 )
+text = "back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="win" type="Control" parent="ui"]
 visible = false
 margin_right = 1287.0
 margin_bottom = 719.0
@@ -140,13 +256,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="background" type="TextureRect" parent="win"]
+[node name="background" type="TextureRect" parent="ui/win"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 14 )
+texture = SubResource( 12 )
 expand = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="win"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/win"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -160,31 +276,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="main" type="Button" parent="win/HBoxContainer"]
+[node name="main" type="Button" parent="ui/win/HBoxContainer"]
 margin_right = 444.0
 margin_bottom = 155.0
 size_flags_horizontal = 3
-custom_styles/normal = SubResource( 15 )
+custom_styles/normal = SubResource( 13 )
 text = "main menu"
 
-[node name="retry" type="Button" parent="win/HBoxContainer"]
+[node name="retry" type="Button" parent="ui/win/HBoxContainer"]
 visible = false
 margin_left = 544.0
 margin_right = 989.0
 margin_bottom = 155.0
 size_flags_horizontal = 3
-custom_styles/normal = SubResource( 15 )
+custom_styles/normal = SubResource( 13 )
 text = "Retry"
 
-[node name="next" type="Button" parent="win/HBoxContainer"]
+[node name="next" type="Button" parent="ui/win/HBoxContainer"]
 margin_left = 544.0
 margin_right = 989.0
 margin_bottom = 155.0
 size_flags_horizontal = 3
-custom_styles/normal = SubResource( 16 )
+custom_styles/normal = SubResource( 14 )
 text = "Next level"
 
-[node name="complete" type="Label" parent="win"]
+[node name="complete" type="Label" parent="ui/win"]
 margin_left = 115.88
 margin_top = 136.516
 margin_right = 1180.88
@@ -194,8 +310,14 @@ text = "Level complete"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="levels/sandbox" to="levels/sandbox" method="on_pressed"]
-[connection signal="pressed" from="levels/fxshape" to="levels/fxshape" method="on_pressed"]
-[connection signal="pressed" from="levels/tutorial" to="levels/tutorial" method="on_pressed"]
-[connection signal="pressed" from="win/HBoxContainer/main" to="." method="go_to_main_menu"]
-[connection signal="pressed" from="win/HBoxContainer/next" to="." method="load_next_level"]
+[connection signal="pressed" from="ui/main/options" to="." method="on_options_pressed"]
+[connection signal="pressed" from="ui/main/quit" to="." method="on_quit_pressed"]
+[connection signal="load_level" from="ui/main/levels/sandbox" to="." method="load_level"]
+[connection signal="pressed" from="ui/main/levels/sandbox" to="ui/main/levels/sandbox" method="on_pressed"]
+[connection signal="load_level" from="ui/main/levels/fxshape" to="." method="load_level"]
+[connection signal="pressed" from="ui/main/levels/fxshape" to="ui/main/levels/fxshape" method="on_pressed"]
+[connection signal="load_level" from="ui/main/levels/tutorial" to="." method="load_level"]
+[connection signal="pressed" from="ui/main/levels/tutorial" to="ui/main/levels/tutorial" method="on_pressed"]
+[connection signal="pressed" from="ui/options menu/close" to="." method="on_options_close_pressed"]
+[connection signal="pressed" from="ui/win/HBoxContainer/main" to="." method="go_to_main_menu"]
+[connection signal="pressed" from="ui/win/HBoxContainer/next" to="." method="load_next_level"]

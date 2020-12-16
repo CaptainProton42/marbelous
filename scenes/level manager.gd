@@ -2,13 +2,17 @@ extends Node2D
 
 export (PackedScene) var level_button
 
+onready var levels_ui = $ui/main/levels
+onready var win_ui = $ui/win
+onready var options_ui = $"ui/options menu"
+
 var loaded_level
 var current_level_i = 0
 
 func _ready():
 	for l in LevelList.list:
 		var instance = level_button.instance()
-		$levels.add_child(instance)
+		levels_ui.add_child(instance)
 		instance.connect("load_level", self, "load_level")
 		instance.text = l
 		var level = get_level(l)
@@ -48,11 +52,11 @@ func clear_level():
 		loaded_level.queue_free()
 
 func go_to_main_menu():
-	$win.hide()
+	win_ui.hide()
 	clear_level()
 
 func load_level(level):
-	$win.hide()
+	win_ui.hide()
 	clear_level()
 	loaded_level = level.instance()
 	loaded_level.connect("level_cleared", self, "on_level_cleared")
@@ -66,5 +70,14 @@ func on_level_cleared():
 	on_level_complete()
 
 func on_level_complete():
-	move_child($win, get_child_count())
-	$win.show()
+#	move_child($win, get_child_count())
+	win_ui.show()
+
+func on_options_pressed():
+	options_ui.show()
+
+func on_options_close_pressed():
+	options_ui.hide()
+
+func on_quit_pressed():
+	get_tree().quit()

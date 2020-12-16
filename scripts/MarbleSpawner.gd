@@ -13,7 +13,7 @@ export var start_velocity : Vector2 = Vector2(0.0, 0.0)
 export var min_time_between_spawns : float = 5.0
 export var fixed_timer : float = 4.0 setget set_fixed_timer
 export (Sync) var synchronisation
-export (float) var marble_lifetime = 10.0
+export (float) var marble_lifetime = 0
 
 var _marbles : Array = []
 #var _marbles_alive : int = 0

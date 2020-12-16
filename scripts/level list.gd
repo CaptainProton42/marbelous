@@ -3,9 +3,9 @@ extends Node
 const list = [
 	"Level verybasic",
 	"Level0",
-	"level split (wip)",
+	"Level 2sides 1note wwait.tscn",
 	"Level1",
-	"invisibles",
+	"Level invisible shapes",
 	"1 marble",
 	"marble lifetime",
 	"decay pass"

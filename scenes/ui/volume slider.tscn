@@ -2,18 +2,16 @@
 
 [ext_resource path="res://scripts/ui/volume slider.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/mute.png" type="Texture" id=2]
-[ext_resource path="res://assets/textures/MaxVolume.png" type="Texture" id=3]
-[ext_resource path="res://assets/textures/backdrop.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/backdrop.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/MaxVolume.png" type="Texture" id=4]
 
-[node name="volume" type="Node2D"]
-
-[node name="slider" type="VSlider" parent="."]
+[node name="slider" type="VSlider"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1200.0
 margin_top = 78.0
-margin_right = 1216.0
-margin_bottom = 218.0
+margin_right = -58.0
+margin_bottom = -504.0
 max_value = 1.0
 step = 0.01
 script = ExtResource( 1 )
@@ -21,15 +19,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MaxVolume" type="TextureRect" parent="slider"]
+[node name="MaxVolume" type="TextureRect" parent="."]
 margin_left = -11.626
 margin_top = -42.3312
 margin_right = 488.374
 margin_bottom = 457.669
 rect_scale = Vector2( 0.0892136, 0.0892136 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
-[node name="mute" type="TextureRect" parent="slider"]
+[node name="mute" type="TextureRect" parent="."]
 margin_left = -10.8311
 margin_top = 138.148
 margin_right = 489.169
@@ -40,15 +38,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="backdrop" type="TextureRect" parent="slider"]
+[node name="backdrop" type="TextureRect" parent="."]
 show_behind_parent = true
 margin_left = -31.4281
 margin_top = -56.3422
 margin_right = 120.572
 margin_bottom = 351.658
 rect_scale = Vector2( 0.577592, 0.617592 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="value_changed" from="slider" to="slider" method="on_volume_value_changed"]
+[connection signal="value_changed" from="." to="." method="on_volume_value_changed"]
