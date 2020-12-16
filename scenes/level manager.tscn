@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scenes/level button.gd" type="Script" id=1]
 [ext_resource path="res://scenes/level manager.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://scenes/MarbleSpawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/ui/volume Node2D.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/ui/volume slider.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/ui/fullscreen.gd" type="Script" id=12]
 [ext_resource path="res://scenes/levels/Level FxShapes.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/level button.tscn" type="PackedScene" id=16]
 
@@ -21,7 +22,7 @@ colors = PoolColorArray( 0, 0, 0, 1 )
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
 
-[sub_resource type="Environment" id=10]
+[sub_resource type="Environment" id=3]
 background_mode = 4
 background_energy = 3.8
 glow_enabled = true
@@ -31,34 +32,34 @@ glow_hdr_threshold = 0.9
 glow_hdr_scale = 1.36
 glow_bicubic_upscale = true
 
-[sub_resource type="StyleBoxFlat" id=18]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.53, 0.2226, 0.381423, 1 )
 
-[sub_resource type="StyleBoxFlat" id=17]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 1, 0, 0.533333, 1 )
 
-[sub_resource type="StyleBoxFlat" id=15]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.921569, 0.168627, 0.564706, 1 )
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.47, 0.451827, 0.1974, 1 )
 
-[sub_resource type="StyleBoxFlat" id=19]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 1, 0.55, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=16]
+[sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.956863, 0.580392, 0.133333, 1 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.160784, 0.219608, 0.454902, 1 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.21, 0.578667, 1, 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 0.14902, 0.466667, 0.858824, 1 )
 
-[sub_resource type="PackedScene" id=6]
+[sub_resource type="PackedScene" id=13]
 _bundled = {
 "base_scene": 0,
 "conn_count": 0,
@@ -72,25 +73,25 @@ _bundled = {
 "version": 2
 }
 
-[sub_resource type="StyleBoxFlat" id=20]
+[sub_resource type="StyleBoxFlat" id=14]
 bg_color = Color( 0.281283, 0.133, 0.35, 1 )
 
-[sub_resource type="StyleBoxFlat" id=21]
+[sub_resource type="StyleBoxFlat" id=15]
 bg_color = Color( 0.682353, 0.0862745, 0.8, 1 )
 
-[sub_resource type="StyleBoxFlat" id=22]
+[sub_resource type="StyleBoxFlat" id=16]
 bg_color = Color( 0.490196, 0.0588235, 0.572549, 1 )
 
-[sub_resource type="Gradient" id=11]
+[sub_resource type="Gradient" id=17]
 colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=12]
-gradient = SubResource( 11 )
+[sub_resource type="GradientTexture" id=18]
+gradient = SubResource( 17 )
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=19]
 bg_color = Color( 0.152941, 0.478431, 0.862745, 1 )
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=20]
 bg_color = Color( 0.956863, 0.580392, 0.133333, 1 )
 
 [node name="level manager" type="Node2D"]
@@ -108,7 +109,7 @@ scale = Vector2( 0.453451, 0.453451 )
 texture = ExtResource( 6 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 10 )
+environment = SubResource( 3 )
 
 [node name="ui" type="Control" parent="."]
 margin_right = 1281.0
@@ -133,9 +134,9 @@ margin_top = 553.628
 margin_right = 823.0
 margin_bottom = 580.628
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 18 )
-custom_styles/pressed = SubResource( 17 )
-custom_styles/normal = SubResource( 15 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
 text = "options"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -149,8 +150,8 @@ margin_right = 823.0
 margin_bottom = 652.628
 size_flags_horizontal = 3
 custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 19 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
 text = "quit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -172,24 +173,24 @@ __meta__ = {
 margin_right = 343.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
 text = "Sandbox"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-level = SubResource( 6 )
+level = SubResource( 13 )
 
 [node name="fxshape" type="Button" parent="ui/main/levels"]
 margin_left = 347.0
 margin_right = 690.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
 text = "FxShape"
 script = ExtResource( 1 )
 __meta__ = {
@@ -203,9 +204,9 @@ margin_left = 694.0
 margin_right = 1037.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 20 )
-custom_styles/pressed = SubResource( 21 )
-custom_styles/normal = SubResource( 22 )
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
 text = "how to"
 script = ExtResource( 1 )
 __meta__ = {
@@ -214,7 +215,6 @@ __meta__ = {
 level = ExtResource( 5 )
 
 [node name="options menu" type="Control" parent="ui"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -240,9 +240,24 @@ margin_right = 823.0
 margin_bottom = 652.628
 size_flags_horizontal = 3
 custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 19 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
 text = "back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fullscreen" type="CheckButton" parent="ui/options menu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -98.0
+margin_top = 144.0
+margin_right = 98.0
+margin_bottom = 176.0
+text = "Fullscreen"
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -259,7 +274,7 @@ __meta__ = {
 [node name="background" type="TextureRect" parent="ui/win"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 12 )
+texture = SubResource( 18 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ui/win"]
@@ -280,7 +295,7 @@ __meta__ = {
 margin_right = 444.0
 margin_bottom = 155.0
 size_flags_horizontal = 3
-custom_styles/normal = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
 text = "main menu"
 
 [node name="retry" type="Button" parent="ui/win/HBoxContainer"]
@@ -289,7 +304,7 @@ margin_left = 544.0
 margin_right = 989.0
 margin_bottom = 155.0
 size_flags_horizontal = 3
-custom_styles/normal = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
 text = "Retry"
 
 [node name="next" type="Button" parent="ui/win/HBoxContainer"]
@@ -297,7 +312,7 @@ margin_left = 544.0
 margin_right = 989.0
 margin_bottom = 155.0
 size_flags_horizontal = 3
-custom_styles/normal = SubResource( 14 )
+custom_styles/normal = SubResource( 20 )
 text = "Next level"
 
 [node name="complete" type="Label" parent="ui/win"]
@@ -319,5 +334,6 @@ __meta__ = {
 [connection signal="load_level" from="ui/main/levels/tutorial" to="." method="load_level"]
 [connection signal="pressed" from="ui/main/levels/tutorial" to="ui/main/levels/tutorial" method="on_pressed"]
 [connection signal="pressed" from="ui/options menu/close" to="." method="on_options_close_pressed"]
+[connection signal="pressed" from="ui/options menu/fullscreen" to="ui/options menu/fullscreen" method="on_pressed"]
 [connection signal="pressed" from="ui/win/HBoxContainer/main" to="." method="go_to_main_menu"]
 [connection signal="pressed" from="ui/win/HBoxContainer/next" to="." method="load_next_level"]
