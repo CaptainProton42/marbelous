@@ -14,3 +14,5 @@ position = Vector2( 286, 64 )
 start_velocity = Vector2( 200, 200 )
 
 [node name="kill frame" parent="." index="5" instance=ExtResource( 4 )]
+
+[editable path="decay area"]

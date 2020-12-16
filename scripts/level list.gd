@@ -7,5 +7,6 @@ const list = [
 	"Level1",
 	"invisibles",
 	"1 marble",
-	"marble lifetime"
+	"marble lifetime",
+	"decay pass"
 ]
