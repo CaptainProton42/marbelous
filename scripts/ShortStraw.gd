@@ -1,41 +1,19 @@
 extends Node
 
-# Empirical as per paper
-const RESAMPLE_FACTOR = 40
+# Algorithm parameters
+# Standard values are taken from the paper and shouldn't be modified unless you know what you're doing.
+var resample_factor: int = 40
+var straw_length: int = 3 # half length, actually
+var straw_threshold: float = 0.95
+var line_threshold: float = 0.95
 
-func _calculate_bounding_box(polyline: PoolVector2Array) -> Rect2:
-	var min_x: float = polyline[0].x
-	var max_x: float = polyline[0].x
-	var min_y: float = polyline[0].y
-	var max_y: float = polyline[0].y
-
-	for pt in polyline:
-		max_x = max(pt.x, max_x)
-		min_x = min(pt.x, min_x)
-		max_y = max(pt.y, max_y)
-		min_y = min(pt.y, min_y)
-
-	return Rect2(min_x, min_y, max_x-min_x, max_y-min_y)
-
-func _resample(polyline: PoolVector2Array, pathtimes) -> Array:
-	# Resample a freehand polyline with a uniform interspacing distance
-	var bb: Rect2 = _calculate_bounding_box(polyline)
-	var isd: float = bb.size.length() / RESAMPLE_FACTOR # Interspacing distance
-
-	# Resampling algorithm
-	var resampled: PoolVector2Array = [polyline[0]]
-	var resampled_times: PoolRealArray = [0.0]
-	var d: float = 0.0 # Distance holder
-	for i in range(1, polyline.size()):
-		var v: Vector2 = polyline[i] - polyline[i-1]
-		d += v.length()
-		while (d > isd):
-			d -= isd
-			var pt = polyline[i] - v.normalized() * d
-			resampled.append(pt)
-			resampled_times.append(resampled_times[resampled_times.size() - 1] + (resampled[resampled.size() - 1] - resampled[resampled.size() - 2]).length())
-
-	return [resampled, resampled_times]
+# Run the algorithm
+func run(points: PoolVector2Array) -> PoolVector2Array:
+	var s: float = _determine_resample_spacing(points)
+	var resampled: PoolVector2Array = _resample_points(points, s)
+	var corners: PoolIntArray = _get_corners(resampled)
+	var corner_points: PoolVector2Array = _get_corner_points(resampled, corners)
+	return corner_points
 
 # Runs in O(n) on average, O(n^2) in worst case
 func _quickselect(arr, k):
@@ -70,83 +48,130 @@ func _quickselect_median(arr):
 	else:
 		return 0.5 * (_quickselect(arr, (arr.size() - 1) / 2)
 					  + _quickselect(arr, (arr.size() + 1) / 2))
-	
 
-func _bottom_up(polyline: PoolVector2Array, w: int):
+func _calculate_bounding_box(points: PoolVector2Array) -> Rect2:
+	var min_x: float = points[0].x
+	var max_x: float = points[0].x
+	var min_y: float = points[0].y
+	var max_y: float = points[0].y
+
+	for pt in points:
+		max_x = max(pt.x, max_x)
+		min_x = min(pt.x, min_x)
+		max_y = max(pt.y, max_y)
+		min_y = min(pt.y, min_y)
+
+	return Rect2(min_x, min_y, max_x-min_x, max_y-min_y)
+
+func _get_corner_points(points: PoolVector2Array, corners: PoolIntArray) -> PoolVector2Array:
+	var corner_points: PoolVector2Array = []
+	corner_points.resize(corners.size())
+	for i in range(corners.size()):
+		corner_points[i] = points[corners[i]]
+	return corner_points
+
+func _determine_resample_spacing(points: PoolVector2Array) -> float:
+	var bb: Rect2 = _calculate_bounding_box(points)
+	var s: float = bb.size.length() / resample_factor
+	return s
+
+func _resample_points(points: PoolVector2Array, s: float) -> PoolVector2Array:
+	# Resampling algorithm
+	var resampled: PoolVector2Array = [points[0]]
+
+	var d: float = 0.0 # Distance holder
+	for i in range(1, points.size()):
+		var v: Vector2 = points[i] - points[i-1]
+		d += v.length()
+		while (d > s):
+			d -= s
+			var pt = points[i] - v.normalized() * d
+			resampled.append(pt)
+
+	return resampled
+
+func _get_corners(points: PoolVector2Array):
 	var corners = [0] # start should be corner
+
+	# Calculate the straws
 	var straws: PoolRealArray = []
-	straws.resize(polyline.size() - 2 * w)
+	straws.resize(points.size() - 2 * straw_length)
+	for i in range(points.size() - 2 * straw_length):
+		straws[i] = (points[i+2*straw_length] - points[i]).length()
 
-	for i in range(polyline.size() - 2*w):
-		straws[i] = (polyline[i+2*w] - polyline[i]).length()
+	var t: float = _quickselect_median(straws) * straw_threshold
 
-	var median: float = _quickselect_median(straws)
-	var thresh: float = 0.95 * median
+	var i = 0
+	while i < straws.size():
+		if straws[i] < t:
+			var local_min: float = straws[i]
+			var local_min_index: float = i
+			while i < straws.size() and straws[i] < t:
+				if straws[i] < local_min:
+					local_min = straws[i]
+					local_min_index = i
+				i += 1
+			corners.append(local_min_index + straw_length)
+		i += 1
 
-	for i in range(1, straws.size() - 1):
-		if straws[i] < straws[i+1] and straws[i] < straws[i-1] and straws[i] < thresh: # local minimum below threshold
-			corners.append(i+w)
+	corners.append(points.size() - 1) # end should be corner
 
-	corners.append(polyline.size() - 1) # end should be corner
+	corners = _post_process_corners(points, corners, straws)
 
 	return corners
 
-func _check_and_insert(polyline, pathtimes, idx1, idx2, w):
-	var distance: float = (polyline[idx2] - polyline[idx1]).length()
-	var path_distance: float = (pathtimes[idx2] - pathtimes[idx1])
+func _post_process_corners(points: PoolVector2Array, corners: PoolIntArray, straws: PoolRealArray) -> PoolIntArray:
+	if corners.size() < 3: # Polyline has only start and endpoint
+		return corners
 
-	if distance / path_distance > 0.95:
-		return [idx1]
-	else:
-		var min_val = 99999999.9 # good start value
-		var min_idx = -1
-		var quarter = 0.25 * path_distance
-		for i in range(max(idx1, w), min(idx2, polyline.size() - 1 - w)):
-			var straw = (polyline[i+w] - polyline[i-w]).length()
-			if (pathtimes[i] - pathtimes[idx1]) >= quarter and (pathtimes[idx2] - pathtimes[i]) >= quarter:
-				if straw < min_val:
-					min_val = straw
-					min_idx = i
+	var i: int = 1
+	while i < corners.size():
+		var c1: int = corners[i - 1]
+		var c2: int = corners[i]
+		if not _is_line(points, c1, c2):
+			var new_corner: int = _halfway_corner(straws, c1, c2)
+			corners.insert(i, new_corner)
+			i -= 1
+		i += 1
 
-		if min_idx == -1: # fallback for edge cases with begin and end corner
-			return [idx1]
+	i = 1
+	while i < corners.size() - 1:
+		var c1: int = corners[i-1]
+		var c2: int = corners[i+1]
 
-		return _check_and_insert(polyline, pathtimes, idx1, min_idx, w) + _check_and_insert(polyline, pathtimes, min_idx, idx2, w)
-
-func _top_down(polyline: PoolVector2Array, pathtimes: PoolRealArray, corner_indices: PoolIntArray, w: int):
-	if corner_indices.size() < 3: # Polyline has only start and endpoint
-		return corner_indices
-
-	var processed_indices  = []
-
-	for i in range(corner_indices.size() - 1):
-		processed_indices += (_check_and_insert(polyline, pathtimes, corner_indices[i], corner_indices[i+1], w))
-
-	processed_indices.append(corner_indices[corner_indices.size() - 1])
-
-	# check colinearity
-	var i = 0
-	while i < processed_indices.size()-2:
-		var d0 = (polyline[processed_indices[i+1]] - polyline[processed_indices[i]]).length()
-		var d1 = (polyline[processed_indices[i+2]] - polyline[processed_indices[i+1]]).length()
-		var d = (polyline[processed_indices[i+2]] - polyline[processed_indices[i]]).length()
-
-		if (d / (d0 + d1)) > 0.95:
-			processed_indices.remove(i+1)
+		if _is_line(points, c1, c2):
+			corners.remove(i)
 		else:
 			i += 1
 
-	return processed_indices
-
-func short_straw(polyline: PoolVector2Array, pathtimes: PoolRealArray) -> PoolVector2Array:
-	# ShortStraw algorithm for corner detection. Returns an array with the corner coordinates (excluding start and end points).
-	var r = _resample(polyline, pathtimes)
-	var resampled = r[0]
-	var resampled_times = r[1]
-	var corner_indices = _bottom_up(resampled, 3)
-	corner_indices = _top_down(resampled, resampled_times, corner_indices, 3)
-	var corners: PoolVector2Array = []
-	corners.resize(corner_indices.size())
-	for i in range(corner_indices.size()):
-		corners[i] = resampled[corner_indices[i]]
 	return corners
+
+func _halfway_corner(straws: PoolRealArray, a: int, b: int) -> int:
+	var quarter: int = int(floor((b - a) / 2.0))
+	var min_value: float = straws[a + quarter]
+	var min_index: int = a + quarter
+	for i in range(a + quarter, b - quarter):
+		if straws[i] < min_value:
+			min_value = straws[i]
+			min_index = i
+
+	return min_index
+
+func _is_line(points: PoolVector2Array, a: int, b: int) -> bool:
+	var distance: float = _distance(points, a, b)
+	var path_distance: float = _path_distance(points, a, b)
+
+	if distance / path_distance > line_threshold:
+		return true
+	else:
+		return false
+
+func _distance(points: PoolVector2Array, a: int, b: int) -> float:
+	return (points[b] - points[a]).length()
+
+func _path_distance(points: PoolVector2Array, a: int, b: int) -> float:
+	var d: float = 0.0
+	for i in range(a, b-1):
+		d += _distance(points, i, i+1)
+
+	return d
