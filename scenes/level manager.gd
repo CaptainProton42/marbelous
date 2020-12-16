@@ -1,11 +1,19 @@
 extends Node2D
 
+export (PackedScene) var level_button
+
 var loaded_level
 var current_level_i = 0
 
 func _ready():
-	for l in $levels.get_children():
-		l.connect("load_level", self, "load_level")
+	for l in LevelList.list:
+		var instance = level_button.instance()
+		$levels.add_child(instance)
+		instance.connect("load_level", self, "load_level")
+		instance.text = l
+		var level = get_level(l)
+		instance.level = level
+	
 
 func load_next_level():
 	var level = get_next_level()
@@ -13,16 +21,18 @@ func load_next_level():
 
 func get_next_level():
 	current_level_i += 1
-	var level = get_level(current_level_i)
+	var level = get_level(get_level_name(current_level_i))
 	return level
 
-func get_level(i):
+func get_level_name(i):
 	if i < 0 or i >= LevelList.list.size():
 		printerr("Attempting to get a level out of level list range")
 		return null
 	
 	var level_name = LevelList.list[i]
-	
+	return level_name
+
+func get_level(level_name):
 	var file = File.new()
 	var path = "res://scenes/levels/" + level_name + ".tscn"
 	

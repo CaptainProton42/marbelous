@@ -1,20 +1,14 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenes/level button.gd" type="Script" id=1]
 [ext_resource path="res://scenes/level manager.gd" type="Script" id=2]
 [ext_resource path="res://scenes/levels/Playground.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/levels/Level1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/levels/Tutorial.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/textures/marbelous_logo.png" type="Texture" id=6]
 [ext_resource path="res://ui.theme.tres" type="Theme" id=7]
 [ext_resource path="res://assets/fonts/level complete.font.tres" type="DynamicFont" id=8]
-[ext_resource path="res://scenes/levels/Level0.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/levels/Level verybasic.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/levels/Level 2sides 1note wwait.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/levels/Level invisible shapes.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/levels/1 marble.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/levels/Marble lifetime.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/levels/Level FxShapes.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/level button.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
@@ -31,15 +25,6 @@ bg_color = Color( 0.21, 0.578667, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.14902, 0.466667, 0.858824, 1 )
-
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.00392157, 0.447059, 0.258824, 1 )
-
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.00799999, 0.8, 0.5624, 1 )
-
-[sub_resource type="StyleBoxFlat" id=8]
-bg_color = Color( 0.00784314, 0.611765, 0.427451, 1 )
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.364706, 0.0313726, 0.45098, 1 )
@@ -74,6 +59,7 @@ bg_color = Color( 0.956863, 0.580392, 0.133333, 1 )
 
 [node name="level manager" type="Node2D"]
 script = ExtResource( 2 )
+level_button = ExtResource( 16 )
 
 [node name="background" type="Sprite" parent="."]
 scale = Vector2( 1, 950.698 )
@@ -126,127 +112,11 @@ __meta__ = {
 }
 level = ExtResource( 15 )
 
-[node name="very basic" type="Button" parent="levels"]
-modulate = Color( 1.3, 1.3, 1.3, 1 )
+[node name="tutorial" type="Button" parent="levels"]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
 margin_left = 694.0
 margin_right = 1037.0
 margin_bottom = 27.0
-size_flags_horizontal = 3
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
-text = "level verybasic"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-level = ExtResource( 10 )
-
-[node name="level 0" type="Button" parent="levels"]
-modulate = Color( 1.3, 1.3, 1.3, 1 )
-margin_top = 31.0
-margin_right = 343.0
-margin_bottom = 58.0
-size_flags_horizontal = 3
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
-text = "level 0"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-level = ExtResource( 9 )
-
-[node name="split" type="Button" parent="levels"]
-modulate = Color( 1.3, 1.3, 1.3, 1 )
-margin_left = 347.0
-margin_top = 31.0
-margin_right = 690.0
-margin_bottom = 58.0
-size_flags_horizontal = 3
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
-text = "level split (wip)"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-level = ExtResource( 11 )
-
-[node name="level 2" type="Button" parent="levels"]
-modulate = Color( 1.3, 1.3, 1.3, 1 )
-margin_left = 694.0
-margin_top = 31.0
-margin_right = 1037.0
-margin_bottom = 58.0
-size_flags_horizontal = 3
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
-text = "level 1"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-level = ExtResource( 4 )
-
-[node name="invisible" type="Button" parent="levels"]
-modulate = Color( 1.3, 1.3, 1.3, 1 )
-margin_top = 62.0
-margin_right = 343.0
-margin_bottom = 89.0
-size_flags_horizontal = 3
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
-text = "invisibles"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-level = ExtResource( 12 )
-
-[node name="1marble" type="Button" parent="levels"]
-modulate = Color( 1.3, 1.3, 1.3, 1 )
-margin_left = 347.0
-margin_top = 62.0
-margin_right = 690.0
-margin_bottom = 89.0
-size_flags_horizontal = 3
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
-text = "1 marble"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-level = ExtResource( 13 )
-
-[node name="marblelifetime" type="Button" parent="levels"]
-modulate = Color( 1.3, 1.3, 1.3, 1 )
-margin_left = 694.0
-margin_top = 62.0
-margin_right = 1037.0
-margin_bottom = 89.0
-size_flags_horizontal = 3
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
-text = "marble lifetime"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-level = ExtResource( 14 )
-
-[node name="tutorial" type="Button" parent="levels"]
-modulate = Color( 1.5, 1.5, 1.5, 1 )
-margin_top = 93.0
-margin_right = 343.0
-margin_bottom = 120.0
 size_flags_horizontal = 3
 custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 10 )
@@ -326,13 +196,6 @@ __meta__ = {
 }
 [connection signal="pressed" from="levels/sandbox" to="levels/sandbox" method="on_pressed"]
 [connection signal="pressed" from="levels/fxshape" to="levels/fxshape" method="on_pressed"]
-[connection signal="pressed" from="levels/very basic" to="levels/very basic" method="on_pressed"]
-[connection signal="pressed" from="levels/level 0" to="levels/level 0" method="on_pressed"]
-[connection signal="pressed" from="levels/split" to="levels/split" method="on_pressed"]
-[connection signal="pressed" from="levels/level 2" to="levels/level 2" method="on_pressed"]
-[connection signal="pressed" from="levels/invisible" to="levels/invisible" method="on_pressed"]
-[connection signal="pressed" from="levels/1marble" to="levels/1marble" method="on_pressed"]
-[connection signal="pressed" from="levels/marblelifetime" to="levels/marblelifetime" method="on_pressed"]
 [connection signal="pressed" from="levels/tutorial" to="levels/tutorial" method="on_pressed"]
 [connection signal="pressed" from="win/HBoxContainer/main" to="." method="go_to_main_menu"]
 [connection signal="pressed" from="win/HBoxContainer/next" to="." method="load_next_level"]
