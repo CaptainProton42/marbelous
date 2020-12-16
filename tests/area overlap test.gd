@@ -8,7 +8,13 @@ func _on_ShapeSpawner_shape_created(shape):
 			$label.text = "i don't see it"
 
 func _on_fxshape_body_entered(body):
-	AudioServer.set_bus_effect_enabled(1, 2, true)
+	print("entered")
+	if body is Marble:
+		body.route_bus("distortion")
+#	AudioServer.set_bus_effect_enabled(1, 2, true)
 
 func _on_fxshape_body_exited(body):
-	AudioServer.set_bus_effect_enabled(1, 2, false)
+	print("exited")
+	if body is Marble:
+		body.route_bus()
+#	AudioServer.set_bus_effect_enabled(1, 2, false)

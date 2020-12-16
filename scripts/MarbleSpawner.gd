@@ -11,7 +11,7 @@ enum Sync {
 export var max_marbles_alive : int = 1
 export var start_velocity : Vector2 = Vector2(0.0, 0.0)
 export var min_time_between_spawns : float = 5.0
-export var fixed_timer : float = 4.0
+export var fixed_timer : float = 4.0 setget set_fixed_timer
 export (Sync) var synchronisation
 export (float) var marble_lifetime = 10.0
 
@@ -100,3 +100,7 @@ func get_marbles_alive():
 func _on_timer_timeout():
 	if synchronisation == Sync.TIMER:
 		_spawn_marble()
+
+func set_fixed_timer(value):
+	fixed_timer = value
+	$timer.wait_time = fixed_timer

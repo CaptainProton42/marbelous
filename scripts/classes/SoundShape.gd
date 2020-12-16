@@ -27,15 +27,15 @@ func _ready():
 	for s in semitones:
 		steps.append(semi_to_pitch(s))
 
-func hit(n : Vector2, velocity = 0.0) -> void:
+func hit(n : Vector2, velocity = 0.0, marble_bus_name = "") -> void:
 	last_hit_normal = n
-	emit_sound(velocity)
+	emit_sound(velocity, marble_bus_name)
 	play_animation()
 
 func play_animation():
 	pass
 
-func emit_sound(velocity = 0.0):
+func emit_sound(velocity = 0.0, marble_bus_name = ""):
 	var area = get_area()
 	
 	var volume = sqrt(velocity / 1000)
@@ -49,8 +49,14 @@ func emit_sound(velocity = 0.0):
 	else:
 		printerr("Shape area is 0")
 	
-	$AudioStreamPlayer2D.volume_db = volume
-	$AudioStreamPlayer2D.play()
+	var clone = $AudioStreamPlayer2D.duplicate()
+	add_child(clone)
+	clone.volume_db = volume
+	clone.bus = marble_bus_name
+	clone.connect("finished", clone, "queue_free")
+	clone.play()
+	
+	return clone
 
 
 func quantize_pitch(pitch):

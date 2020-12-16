@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+class_name Marble
+
 export (PackedScene) var death_particles
 
 signal entered_state
@@ -23,6 +25,18 @@ func init(l = 0.0):
 		$sentence.wait_time = lifetime
 		$sentence.start()
 	_enter_state(State.SHOULD_RESET)
+	
+	create_bus()
+
+func create_bus():
+	var i = AudioServer.bus_count
+	AudioServer.add_bus(i)
+	AudioServer.set_bus_name(i, get_bus_name())
+	route_bus()
+
+func route_bus(bus_name = "shape"):
+	var i = AudioServer.get_bus_index(get_bus_name())
+	AudioServer.set_bus_send(i, bus_name)
 
 func revive() -> void:
 	_enter_state(State.SHOULD_RESET)
@@ -95,7 +109,7 @@ func _integrate_forces(state : Physics2DDirectBodyState):
 			
 			var bounce_dir = dir.reflect(normal)
 
-			collider.hit(normal, state.linear_velocity.length())
+			collider.hit(normal, state.linear_velocity.length(), get_bus_name())
 			
 			# This is terrible. Hopefully noone will notice
 			apply_central_impulse(50.0 * (collider.physics_material_override.bounce - 1.0)*bounce_dir)
@@ -132,3 +146,6 @@ func reach_goal():
 func on_sentence_timeout():
 	if lifetime > 0:
 		kill()
+
+func get_bus_name():
+	return self.to_string()
