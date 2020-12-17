@@ -215,6 +215,7 @@ __meta__ = {
 level = ExtResource( 5 )
 
 [node name="options menu" type="Control" parent="ui"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
