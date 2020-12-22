@@ -24,8 +24,8 @@ glow_bicubic_upscale = true
 script = ExtResource( 1 )
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( -123.472, -68.0358 )
-scale = Vector2( 1.08121, 1192.89 )
+position = Vector2( 0, 0.0149689 )
+scale = Vector2( 0.625, 719.985 )
 texture = SubResource( 2 )
 centered = false
 

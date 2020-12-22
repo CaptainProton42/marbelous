@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/MarbleSpawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/GoalTrigger.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/KillArea frame.tscn" type="PackedScene" id=4]
+
+[node name="Level" instance=ExtResource( 2 )]
+
+[node name="kill frame" parent="." index="3" instance=ExtResource( 4 )]
+
+[node name="MarbleSpawner" parent="." index="4" instance=ExtResource( 1 )]
+position = Vector2( 640, 147.889 )
+start_velocity = Vector2( -500, 0 )
+
+[node name="GoalTrigger" parent="." index="5" instance=ExtResource( 3 )]
+position = Vector2( 640, 541 )
+collectibles_needed = 0

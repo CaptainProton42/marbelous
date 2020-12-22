@@ -5,6 +5,8 @@
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
 
+[sub_resource type="StyleBoxEmpty" id=2]
+
 [sub_resource type="StyleBoxEmpty" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=4]
@@ -12,8 +14,6 @@ bg_color = Color( 1, 1, 1, 1 )
 [sub_resource type="StyleBoxEmpty" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=6]
-
-[sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=7]
 
@@ -42,9 +42,9 @@ CheckButton/icons/off = null
 CheckButton/icons/off_disabled = null
 CheckButton/icons/on = null
 CheckButton/icons/on_disabled = null
-CheckButton/styles/disabled = SubResource( 3 )
-CheckButton/styles/focus = SubResource( 4 )
-CheckButton/styles/hover = SubResource( 5 )
-CheckButton/styles/hover_pressed = SubResource( 6 )
-CheckButton/styles/normal = SubResource( 2 )
+CheckButton/styles/disabled = SubResource( 2 )
+CheckButton/styles/focus = SubResource( 3 )
+CheckButton/styles/hover = SubResource( 4 )
+CheckButton/styles/hover_pressed = SubResource( 5 )
+CheckButton/styles/normal = SubResource( 6 )
 CheckButton/styles/pressed = SubResource( 7 )
