@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 class_name LineDrawing2D
 
 signal drawing_changed
@@ -25,10 +25,10 @@ export var line_color : Color
 
 export var audio_stream : AudioStream
 
-func _ready():
-	connect("gui_input", self, "_on_gui_input")
+#func _ready():
+#	connect("gui_input", self, "_on_gui_input")
 
-func _on_gui_input(event):
+func _input(event):
 	if event is InputEventMouseButton:	
 		if event.button_index == BUTTON_LEFT:
 			if event.pressed:
@@ -45,6 +45,9 @@ func _on_gui_input(event):
 					result[0].collider.remove()
 
 func _on_shape_completed(start_point : int):
+	if _current_drawing == null:
+		return
+	
 	var corners = _current_drawing.get_corners()
 	var corner_count = corners.size()
 
@@ -85,7 +88,7 @@ func _process(delta):
 	if _pen_down:
 		if _draw_timer > draw_interval:
 			var cur_pen_pos : Vector2 = get_local_mouse_position()
-			if cur_pen_pos.x > rect_size.x or cur_pen_pos.y > rect_size.y or cur_pen_pos.x < 0 or cur_pen_pos.y < 0:
+			if cur_pen_pos.x > get_viewport_rect().size.x or cur_pen_pos.y > get_viewport_rect().size.y or cur_pen_pos.x < 0 or cur_pen_pos.y < 0:
 				_current_drawing._close_shape()
 				return
 			_draw_timer -= draw_interval

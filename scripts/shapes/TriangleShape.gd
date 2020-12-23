@@ -13,6 +13,9 @@ func set_corners(corners : PoolVector2Array) -> void:
 	$Collision.polygon = polygon
 
 	_area = 0.5 * abs((corners[1] - corners[0]).cross(corners[2] - corners[0]))
+	if _area == 0:
+		printerr("Shape with area of 0 => deleting")
+		queue_free()
 
 func get_area() -> float:
 	return _area

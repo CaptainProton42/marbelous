@@ -62,3 +62,14 @@ func _on_fxshape_body_entered(body):
 func _on_fxshape_body_exited(body):
 	if body is Marble:
 		body.route_bus()
+
+
+func on_more_pressed():
+	var spawners = get_tree().get_nodes_in_group("MarbleSpawners")
+	for s in spawners:
+		s.mult_timer_multiplier(0.5)
+
+func on_less_pressed():
+	var spawners = get_tree().get_nodes_in_group("MarbleSpawners")
+	for s in spawners:
+		s.mult_timer_multiplier(2)

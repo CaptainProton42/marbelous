@@ -76,7 +76,8 @@ func _enter_state(p_state : int) -> void:
 
 			_reset_collectibles()
 			
-			$death.connect("finished", self, "queue_free")
+			if not $death.is_connected("finished", self, "queue_free"):
+				$death.connect("finished", self, "queue_free")
 #			queue_free()
 			
 			

@@ -1,7 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/MarbleSpawner.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/spawner.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/spawner bottom.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/spawner top.png" type="Texture" id=4]
+[ext_resource path="res://vfx/MarbleSpawner shader.tres" type="Shader" id=5]
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = ExtResource( 5 )
+shader_param/y = 0.224
 
 [sub_resource type="VisualShaderNodeTexture" id=1]
 source = 2
@@ -22,7 +29,7 @@ input_name = "uv"
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id=7]
 
-[sub_resource type="VisualShader" id=8]
+[sub_resource type="VisualShader" id=12]
 code = "shader_type canvas_item;
 uniform float y;
 
@@ -88,7 +95,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( -36, 92 )
+graph_offset = Vector2( -48, -162.5 )
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2( 960, 260 )
@@ -106,10 +113,10 @@ nodes/fragment/12/node = SubResource( 1 )
 nodes/fragment/12/position = Vector2( 160, 280 )
 nodes/fragment/13/node = SubResource( 2 )
 nodes/fragment/13/position = Vector2( 440, 120 )
-nodes/fragment/connections = PoolIntArray( 8, 0, 9, 0, 8, 0, 12, 0, 12, 0, 13, 0, 13, 0, 7, 4, 6, 0, 13, 1, 7, 0, 0, 0, 12, 1, 0, 1, 13, 0, 7, 3, 12, 0, 7, 5, 3, 0, 7, 0, 9, 1, 7, 1 )
+nodes/fragment/connections = PoolIntArray( 12, 0, 13, 0, 13, 0, 7, 4, 6, 0, 13, 1, 7, 0, 0, 0, 12, 1, 0, 1, 13, 0, 7, 3, 12, 0, 7, 5, 3, 0, 7, 0, 9, 1, 7, 1, 8, 0, 9, 0, 8, 0, 12, 0 )
 
-[sub_resource type="ShaderMaterial" id=9]
-shader = SubResource( 8 )
+[sub_resource type="ShaderMaterial" id=13]
+shader = SubResource( 12 )
 shader_param/y = 0.428
 
 [sub_resource type="Animation" id=10]
@@ -128,6 +135,9 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 22.5, 11.4541 )
+
 [node name="MarbleSpawner" type="Node2D" groups=[
 "MarbleSpawners",
 ]]
@@ -142,8 +152,45 @@ scale = Vector2( 0.159497, 0.159497 )
 z_index = 1
 texture = ExtResource( 2 )
 
+[node name="composite" type="Node2D" parent="SpriteAnchor"]
+visible = false
+material = SubResource( 13 )
+position = Vector2( 74.3535, 3.74577 )
+scale = Vector2( 0.159, 0.159 )
+
+[node name="top" type="Sprite" parent="SpriteAnchor/composite"]
+texture = ExtResource( 4 )
+
+[node name="bottom" type="Sprite" parent="SpriteAnchor/composite"]
+position = Vector2( 0, 139.964 )
+texture = ExtResource( 3 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/spawn = SubResource( 10 )
 
 [node name="timer" type="Timer" parent="."]
+
+[node name="less" type="Area2D" parent="." groups=[
+"rate buttons",
+]]
+position = Vector2( 12.0516, -11.75 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="less"]
+position = Vector2( -12, 5 )
+shape = SubResource( 11 )
+
+[node name="more" type="Area2D" parent="." groups=[
+"rate buttons",
+]]
+position = Vector2( 11.7969, 11.0205 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="more"]
+position = Vector2( -12, 5 )
+shape = SubResource( 11 )
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+[connection signal="input_event" from="less" to="." method="on_less_input_event"]
+[connection signal="mouse_entered" from="less" to="." method="on_less_mouse_entered"]
+[connection signal="mouse_exited" from="less" to="." method="on_less_mouse_exited"]
+[connection signal="input_event" from="more" to="." method="on_more_input_event"]
+[connection signal="mouse_entered" from="more" to="." method="on_more_mouse_entered"]
+[connection signal="mouse_exited" from="more" to="." method="on_more_mouse_exited"]

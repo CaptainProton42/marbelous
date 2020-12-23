@@ -19,11 +19,14 @@ var _marbles : Array = []
 #var _marbles_alive : int = 0
 var _spawn_timer : float = 0.0
 var _marbles_queued : Array = []
+var timer_multiplier := 1.0 setget set_timer_multiplier
 
 var _disabled : bool = false
 
 
 onready var marble_tscn = preload("res://scenes/Marble.tscn")
+onready var sprite_anchor = $SpriteAnchor
+onready var sprite = $SpriteAnchor/Sprite
 
 func get_class() -> String:
 	return "MarbleSpawner"
@@ -34,13 +37,17 @@ func get_marbles() -> Array:
 func _ready():
 	# Graphical setup
 	if start_velocity.length() > 0.0:
-		$SpriteAnchor.rotation = start_velocity.angle_to(Vector2(0.0, -1.0))
+		sprite_anchor.rotation = start_velocity.angle_to(Vector2(0.0, -1.0))
 	
 	$timer.wait_time = fixed_timer
 	
+	var rate_buttons = get_tree().get_nodes_in_group("rate buttons")
 	if synchronisation != Sync.TIMER:
-		var mat = $SpriteAnchor/Sprite.get_material()
+		var mat = sprite.get_material()
 		mat.set_shader_param("y", 0)
+	
+	for rb in rate_buttons:
+		rb.visible = synchronisation == Sync.TIMER
 	
 	_spawn_marble()
 
@@ -84,7 +91,7 @@ func _process(delta : float) -> void:
 		_spawn_timer -= delta
 	
 	if synchronisation == Sync.TIMER:
-		var mat = $SpriteAnchor/Sprite.get_material()
+		var mat = sprite.get_material()
 		mat.set_shader_param("y", 1 - $timer.time_left / $timer.wait_time)
 
 func disable():
@@ -103,4 +110,42 @@ func _on_timer_timeout():
 
 func set_fixed_timer(value):
 	fixed_timer = value
-	$timer.wait_time = fixed_timer
+	$timer.wait_time = fixed_timer * timer_multiplier
+
+func set_timer_multiplier(value):
+	value = clamp(value, 0.25, 4)
+	timer_multiplier = value
+	$timer.wait_time = fixed_timer * timer_multiplier
+
+func on_less_input_event(viewport, event, shape_idx):
+	return
+	if event.is_action_pressed("ui_accept"):
+		set_timer_multiplier(timer_multiplier * 2)
+
+func on_more_input_event(viewport, event, shape_idx):
+	return
+	if event.is_action_pressed("ui_accept"):
+		set_timer_multiplier(timer_multiplier / 2)
+
+func mult_timer_multiplier(m):
+	set_timer_multiplier(timer_multiplier * m)
+
+func on_less_mouse_entered():
+	return
+	var mat = sprite.get_material()
+	mat.set_shader_param("hover_top", true)
+
+func on_less_mouse_exited():
+	return
+	var mat = sprite.get_material()
+	mat.set_shader_param("hover_top", false)
+
+func on_more_mouse_entered():
+	return
+	var mat = sprite.get_material()
+	mat.set_shader_param("hover_bottom", true)
+
+func on_more_mouse_exited():
+	return
+	var mat = sprite.get_material()
+	mat.set_shader_param("hover_bottom", false)

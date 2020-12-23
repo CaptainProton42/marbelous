@@ -15,6 +15,5 @@
 position = Vector2( 591.963, 95.0897 )
 fixed_timer = 1.531
 synchronisation = 1
-marble_lifetime = 0.0
 [connection signal="body_entered" from="fxshape" to="." method="_on_fxshape_body_entered"]
 [connection signal="body_exited" from="fxshape" to="." method="_on_fxshape_body_exited"]

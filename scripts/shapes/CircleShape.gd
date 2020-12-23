@@ -8,6 +8,10 @@ func set_radius(radius : float) -> void:
 	$Collision.shape = $Collision.shape.duplicate()
 	$Collision.shape.radius = radius
 	
+	if radius == 0:
+		printerr("Circle shape with radius of 0 => deleting")
+		queue_free()
+	
 	_area = PI * radius * radius
 
 func get_area() -> float:

@@ -33,3 +33,36 @@ centered = false
 environment = SubResource( 3 )
 
 [node name="ShapeSpawner" parent="." instance=ExtResource( 3 )]
+
+[node name="Control" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spawner" type="HBoxContainer" parent="Control"]
+margin_left = 62.1797
+margin_top = 55.4374
+margin_right = 117.18
+margin_bottom = 83.4374
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="more" type="Button" parent="Control/spawner"]
+margin_right = 27.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+text = "+"
+
+[node name="less" type="Button" parent="Control/spawner"]
+margin_left = 27.0
+margin_right = 55.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+text = "-"
+[connection signal="pressed" from="Control/spawner/more" to="." method="on_more_pressed"]
+[connection signal="pressed" from="Control/spawner/less" to="." method="on_less_pressed"]

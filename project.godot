@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Level.gd"
 }, {
-"base": "Control",
+"base": "Node2D",
 "class": "LineDrawing2D",
 "language": "GDScript",
 "path": "res://scripts/LineDrawing2D.gd"
@@ -74,7 +74,8 @@ enabled=PoolStringArray(  )
 
 ui_accept={
 "deadzone": 0.5,
-"events": [  ]
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
 }
 ui_select={
 "deadzone": 0.5,

@@ -1,14 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/LineDrawing2D.gd" type="Script" id=2]
 
-[node name="LineDrawing2D" type="Control"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 706.945, 379.352 )
+
+[node name="LineDrawing2D" type="Area2D"]
 process_priority = 8
-margin_right = 1278.0
-margin_bottom = 720.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 draw_interval = 0.02
-available_ink = 999999.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 642.048, 356.943 )
+shape = SubResource( 1 )

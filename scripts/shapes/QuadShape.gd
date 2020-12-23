@@ -14,7 +14,12 @@ func set_corners(corners : PoolVector2Array) -> void:
 
 	_area = 0.5 * (abs((corners[1] - corners[0]).cross(corners[3] - corners[0]))
 				   + abs((corners[1] - corners[2]).cross(corners[3] - corners[2])))
-				   
+	
+	if _area == 0:
+		printerr("Quad shape with area of 0 => deleting")
+		queue_free()
+	
+
 func get_area() -> float:
 	return _area
 
