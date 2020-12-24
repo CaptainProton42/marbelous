@@ -51,3 +51,9 @@ func remove():
 	$Texture/AnimationPlayer.play("remove")
 	yield($Texture/AnimationPlayer, "animation_finished")
 	queue_free()
+
+#func on_input_event(viewport, event, shape_idx):
+#	if event.is_action_pressed("ui_accept"):
+#		emit_sound(22.0)
+#		$Texture/AnimationPlayer.stop()
+#		$Texture/AnimationPlayer.play("just the sound")

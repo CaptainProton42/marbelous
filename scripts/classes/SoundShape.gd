@@ -41,6 +41,7 @@ func emit_sound(velocity = 0.0, marble_bus_name = ""):
 	var volume = sqrt(velocity / 1000)
 	volume = clamp(volume, 0.0, 1.0)
 	volume = linear2db(volume)
+	printt(velocity, volume)
 	
 	if area > 0:
 		var continuous_pitch = area * pitch_scaling

@@ -7,7 +7,10 @@ const list = [
 	"launch",
 	"horseshoe",
 	"straight lock",
-	"side key"
+	"side key",
+	"the one",
+	"messy",
+	"lozenge"
 #
 #	"Level verybasic",
 #	"Level0",

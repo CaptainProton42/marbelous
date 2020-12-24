@@ -37,7 +37,7 @@ func get_marbles() -> Array:
 func _ready():
 	# Graphical setup
 	if start_velocity.length() > 0.0:
-		sprite_anchor.rotation = start_velocity.angle_to(Vector2(0.0, -1.0))
+		sprite_anchor.rotation = start_velocity.angle() - PI/2
 	
 	$timer.wait_time = fixed_timer
 	
