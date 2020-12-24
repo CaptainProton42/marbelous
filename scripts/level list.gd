@@ -21,3 +21,22 @@ const list = [
 #	"marble lifetime",
 #	"decay pass"
 ]
+
+func get_level(level_name):
+	var file = File.new()
+	var path = "res://scenes/levels/" + level_name + ".tscn"
+	
+	if file.file_exists(path):
+		var scene = load(path)
+		return scene
+	else:
+		printerr("level scene not found at: ", path)
+		return null
+
+func get_level_name(i):
+	if i < 0 or i >= LevelList.list.size():
+		printerr("Attempting to get a level out of level list range")
+		return null
+	
+	var level_name = LevelList.list[i]
+	return level_name

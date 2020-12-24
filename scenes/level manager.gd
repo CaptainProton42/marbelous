@@ -1,23 +1,15 @@
 extends Node2D
 
-export (PackedScene) var level_button
-
-onready var levels_ui = $ui/main/levels
-onready var win_ui = $ui/win
-onready var options_ui = $"ui/options menu"
+export (PackedScene) var main_menu_scene
+export (PackedScene) var win_menu_scene
 
 var loaded_level
 var current_level_i = 0
+var main_menu
+var win_menu
 
 func _ready():
-	for l in LevelList.list:
-		var instance = level_button.instance()
-		levels_ui.add_child(instance)
-		instance.connect("load_level", self, "load_level")
-		instance.text = l
-		var level = get_level(l)
-		instance.level = level
-	
+	go_to_main_menu()
 
 func load_next_level():
 	var level = get_next_level()
@@ -25,38 +17,31 @@ func load_next_level():
 
 func get_next_level():
 	current_level_i += 1
-	var level = get_level(get_level_name(current_level_i))
+	var level = LevelList.get_level(LevelList.get_level_name(current_level_i))
 	return level
-
-func get_level_name(i):
-	if i < 0 or i >= LevelList.list.size():
-		printerr("Attempting to get a level out of level list range")
-		return null
-	
-	var level_name = LevelList.list[i]
-	return level_name
-
-func get_level(level_name):
-	var file = File.new()
-	var path = "res://scenes/levels/" + level_name + ".tscn"
-	
-	if file.file_exists(path):
-		var scene = load(path)
-		return scene
-	else:
-		printerr("level scene not found at: ", path)
-		return null
 
 func clear_level():
 	if loaded_level:
 		loaded_level.queue_free()
 
 func go_to_main_menu():
-	win_ui.hide()
+	main_menu = main_menu_scene.instance()
+	add_child(main_menu)
+	main_menu.connect("load_level", self, "load_level")
 	clear_level()
 
+func go_to_win_menu():
+	win_menu = win_menu_scene.instance()
+	add_child(win_menu)
+	win_menu.connect("go_to_main", self, "go_to_main_menu")
+	win_menu.connect("next_level", self, "load_next_level")
+
 func load_level(level):
-	win_ui.hide()
+	if main_menu:
+		main_menu.queue_free()
+	if win_menu:
+		win_menu.queue_free()
+	
 	clear_level()
 	loaded_level = level.instance()
 	loaded_level.connect("level_cleared", self, "on_level_cleared")
@@ -71,13 +56,4 @@ func on_level_cleared():
 
 func on_level_complete():
 #	move_child($win, get_child_count())
-	win_ui.show()
-
-func on_options_pressed():
-	options_ui.show()
-
-func on_options_close_pressed():
-	options_ui.hide()
-
-func on_quit_pressed():
-	get_tree().quit()
+	go_to_win_menu()
