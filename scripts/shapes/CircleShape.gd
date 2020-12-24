@@ -37,7 +37,6 @@ func set_invisible(invisible):
 
 func start_shape_decay():
 	var tween = $tween
-	printt(tween, $Texture/Scale/Sprite.self_modulate.v)
 	tween.interpolate_property(
 		$Texture/Scale/Sprite, "self_modulate:v",
 		null, 0,

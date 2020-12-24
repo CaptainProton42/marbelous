@@ -45,7 +45,6 @@ func kill() -> void:
 	_enter_state(State.DEAD)
 	if has_node("death"):
 		$death.play()
-#	printt(self, "dies")
 	
 	# particles are instanced and dropped in parent
 	var particles = death_particles.instance()

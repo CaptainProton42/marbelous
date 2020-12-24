@@ -24,6 +24,12 @@ func clear_level():
 	if loaded_level:
 		loaded_level.queue_free()
 
+func clear_ui():
+	if main_menu:
+		main_menu.queue_free()
+	if win_menu:
+		win_menu.queue_free()
+
 func go_to_main_menu():
 	main_menu = main_menu_scene.instance()
 	add_child(main_menu)
@@ -37,12 +43,9 @@ func go_to_win_menu():
 	win_menu.connect("next_level", self, "load_next_level")
 
 func load_level(level):
-	if main_menu:
-		main_menu.queue_free()
-	if win_menu:
-		win_menu.queue_free()
-	
+	clear_ui()
 	clear_level()
+	
 	loaded_level = level.instance()
 	loaded_level.connect("level_cleared", self, "on_level_cleared")
 	add_child(loaded_level)
@@ -50,10 +53,10 @@ func load_level(level):
 func _input(event):
 	if event is InputEventKey and event.is_pressed() and event.scancode == KEY_ESCAPE:
 		clear_level()
+		go_to_main_menu()
 
 func on_level_cleared():
 	on_level_complete()
 
 func on_level_complete():
-#	move_child($win, get_child_count())
 	go_to_win_menu()
