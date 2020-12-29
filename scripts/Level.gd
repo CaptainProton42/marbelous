@@ -40,6 +40,10 @@ func _on_marble_collected(marble : Node):
 		g.check_marble_for_win_condition(marble)
 		_update_goal_progress_bar(g)
 
+func on_marble_collectible_lost(marble, collectible):
+	for g in goals:
+		_update_goal_progress_bar(g)
+
 func get_marbles():
 	return get_tree().get_nodes_in_group("Marbles")
 

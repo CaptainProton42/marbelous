@@ -6,6 +6,7 @@ export (PackedScene) var death_particles
 
 signal entered_state
 signal collected
+signal collectible_lost
 
 enum State {
 	ALIVE, 
@@ -149,3 +150,12 @@ func on_sentence_timeout():
 
 func get_bus_name():
 	return self.to_string()
+
+func on_collectible_ownership_timeout(collectible):
+	# lose the colelctible
+	if _collected_nodes.has(collectible):
+		_collected_nodes.erase(collectible)
+		_collected[collectible.type] -= 1
+		emit_signal("collectible_lost", self, collectible)
+	else:
+		printerr("Marble should lose collectible (because of collectible ownership timeout), but it doesn't own it.")

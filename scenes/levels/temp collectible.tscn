@@ -610,6 +610,7 @@ texture = ExtResource( 6 )
 
 [node name="CollectibleNote" parent="." instance=ExtResource( 4 )]
 position = Vector2( 120.777, 351.835 )
+ownership_time = 2.0
 
 [node name="CollectibleNote2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 631.084, 179.225 )

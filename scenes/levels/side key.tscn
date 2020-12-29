@@ -12,6 +12,8 @@
 
 [node name="MarbleSpawner" parent="." index="4" instance=ExtResource( 1 )]
 position = Vector2( 640, 147.889 )
+synchronisation = 1
+marble_lifetime = 2.0
 
 [node name="GoalTrigger" parent="." index="5" instance=ExtResource( 3 )]
 position = Vector2( 640, 541 )

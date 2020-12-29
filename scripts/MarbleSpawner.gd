@@ -71,6 +71,7 @@ func _spawn_marble() -> void:
 	marble.init(marble_lifetime)
 	
 	marble.connect("collected", get_parent(), "_on_marble_collected", [marble])
+	marble.connect("collectible_lost", get_parent(), "on_marble_collectible_lost")
 	marble.connect("entered_state", get_parent(), "_on_marble_entered_state", [marble])
 
 	$AnimationPlayer.play("spawn")
