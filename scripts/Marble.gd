@@ -3,6 +3,7 @@ extends RigidBody2D
 class_name Marble
 
 export (PackedScene) var death_particles
+var differentiate_collectibles = true
 
 signal entered_state
 signal collected
@@ -20,8 +21,9 @@ var _collected : PoolIntArray = [] # Counts how many collectibles are picked up 
 var _collected_nodes : Array = [] # We need to keep track of which collectibles have aleady been picked up
 var lifetime = 5.0
 
-func init(l = 0.0):
+func init(l = 0.0, dc = true):
 	lifetime = l
+	differentiate_collectibles = dc
 	if lifetime > 0:
 		$sentence.wait_time = lifetime
 		$sentence.start()
@@ -133,7 +135,10 @@ func _physics_process(_delta : float) -> void:
 	#$Sprite/marble_mouth.offset = offset
 
 func collect(collectible : Node):
-	if not collectible in _collected_nodes:
+	# if differentiate_collectibles, and the collectible is not collected --> COLLECT
+	# we do not differentiate_collectibles --> COLLECT
+	if not differentiate_collectibles or not collectible in _collected_nodes:
+		# Bam, logic mastery: 100
 		_collected_nodes.append(collectible)
 		_collected[collectible.type] += 1
 	emit_signal("collected")

@@ -55,6 +55,8 @@ func _on_body_entered(body) -> void:
 	
 	if not persistent:
 		disable()
+	else:
+		$AnimationPlayer.play("tap")
 
 func get_class() -> String:
 	return "Collectible"

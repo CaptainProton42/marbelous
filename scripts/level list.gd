@@ -10,7 +10,8 @@ const list = [
 	"side key",
 	"the one",
 	"messy",
-	"lozenge"
+	"lozenge",
+	"thrice"
 #
 #	"Level verybasic",
 #	"Level0",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/textures/collectable.png" type="Texture" id=1]
 [ext_resource path="res://scripts/classes/Collectible.gd" type="Script" id=2]
@@ -54,6 +54,23 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0.337232, 0.337232 ) ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "tap"
+length = 0.3
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.025, 0.1, 0.175, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -60.0, 40.0, -20.0, 0.0 ]
+}
+
 [node name="CollectibleNote" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
@@ -71,6 +88,7 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/pickup = SubResource( 2 )
 anims/respawn = SubResource( 3 )
+anims/tap = SubResource( 4 )
 
 [node name="sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )

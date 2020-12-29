@@ -67,6 +67,9 @@ func _enter_state(new_state : int) -> void:
 	emit_signal("entered_state", _state)
 
 func set_max_collectibles(count : int) -> void:
+	if count > collectibles_needed:
+		count = collectibles_needed
+	
 	if count > _max_collectibles:
 		for i in range(_max_collectibles, count):
 			$Progress.get_child(i).set_fill(true)

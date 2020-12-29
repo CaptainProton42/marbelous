@@ -14,6 +14,7 @@ export var min_time_between_spawns : float = 5.0
 export var fixed_timer : float = 4.0 setget set_fixed_timer
 export (Sync) var synchronisation
 export (float) var marble_lifetime = 0
+export (bool) var differentiate_collectibles = true
 
 var _marbles : Array = []
 #var _marbles_alive : int = 0
@@ -37,6 +38,7 @@ func get_marbles() -> Array:
 func _ready():
 	# Graphical setup
 	if start_velocity.length() > 0.0:
+		self.rotation = 0
 		sprite_anchor.rotation = start_velocity.angle() - PI/2
 	
 	$timer.wait_time = fixed_timer
@@ -68,7 +70,7 @@ func _spawn_marble() -> void:
 #	marble.connect("entered_state", self, "_on_marble_entered_state", [marble])
 	_marbles.append(marble)
 	add_child(marble)
-	marble.init(marble_lifetime)
+	marble.init(marble_lifetime, differentiate_collectibles)
 	
 	marble.connect("collected", get_parent(), "_on_marble_collected", [marble])
 	marble.connect("collectible_lost", get_parent(), "on_marble_collectible_lost")
