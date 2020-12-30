@@ -3,7 +3,9 @@
 [ext_resource path="res://scenes/Kill area collider.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/KillArea.gd" type="Script" id=2]
 
-[node name="kill frame" type="Area2D"]
+[node name="kill frame" type="Area2D" groups=[
+"kill area",
+]]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 2 )

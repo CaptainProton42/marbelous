@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/textures/obstacle.png" type="Texture" id=1]
+
+[node name="CollisionPolygon2D19" type="CollisionPolygon2D"]
+scale = Vector2( 0.174, 0.174 )
+polygon = PoolVector2Array( -188.503, -188.003, -188.238, -106.159, -295.25, 0.25, -188.804, 105.811, -188.37, 195.815, -99.3882, 195.5, -0.75, 295, 98.277, 195.703, 195.924, 195.559, 195.342, 99.4048, 295.104, 0.175329, 195.81, -99.0352, 196.207, -187.136, 107.181, -188.438, -0.322372, -293.694, -105.953, -188.813 )
+
+[node name="obstacle" type="Sprite" parent="."]
+texture = ExtResource( 1 )

@@ -1,9 +1,13 @@
 extends SoundShape
 
+export (float) var radius setget set_radius
+
 var _area : float = 0.0
 var decaying = false
 
-func set_radius(radius : float) -> void:
+func set_radius(r : float) -> void:
+	radius = r
+	
 	$Texture/Scale.scale = Vector2(radius, radius)
 	$Collision.shape = $Collision.shape.duplicate()
 	$Collision.shape.radius = radius
@@ -46,6 +50,9 @@ func start_shape_decay():
 
 
 func remove():
+	if not can_remove():
+		return
+	
 	emit_signal("removed")
 	$Texture/AnimationPlayer.play("remove")
 	yield($Texture/AnimationPlayer, "animation_finished")

@@ -42,7 +42,6 @@ centered = false
 [node name="MarbleSpawner" parent="." instance=ExtResource( 2 )]
 position = Vector2( 116.736, 72.96 )
 min_time_between_spawns = 3.0
-synchronisation = 1
 
 [node name="ShapeSpawner" type="Node2D" parent="."]
 script = ExtResource( 7 )

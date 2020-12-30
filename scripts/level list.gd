@@ -11,7 +11,9 @@ const list = [
 	"the one",
 	"messy",
 	"lozenge",
-	"thrice"
+	"thrice",
+	"non delete",
+	"wipers"
 #
 #	"Level verybasic",
 #	"Level0",

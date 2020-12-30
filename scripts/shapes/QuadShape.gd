@@ -38,6 +38,9 @@ func set_invisible(invisible):
 	$Polygon2D/AnimationPlayer.get_animation("hit").track_set_enabled(3, invisible)
 
 func remove():
+	if not can_remove():
+		return
+	
 	emit_signal("removed")
 	$Polygon2D/AnimationPlayer.play("remove")
 	yield($Polygon2D/AnimationPlayer, "animation_finished")

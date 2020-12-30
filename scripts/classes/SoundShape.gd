@@ -12,6 +12,7 @@ var pitch_quantization = true
 var semitones = [-12, -9, -7, -5, -2, 1, 3, 5, 7, 10, 12]
 var steps = []
 var pitch_scaling = 0.0001
+var removable
 
 func get_area() -> float:
 	return 0.0
@@ -81,6 +82,8 @@ func release():
 		Tween.TRANS_CIRC)
 	tween.start()
 
+func can_remove():
+	return removable
 
 func remove():
 	pass

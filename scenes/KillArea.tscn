@@ -2,7 +2,9 @@
 
 [ext_resource path="res://scripts/KillArea.gd" type="Script" id=1]
 
-[node name="KillArea" type="Area2D"]
+[node name="KillArea" type="Area2D" groups=[
+"kill areas",
+]]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 1 )

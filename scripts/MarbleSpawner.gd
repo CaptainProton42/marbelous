@@ -44,9 +44,16 @@ func _ready():
 	$timer.wait_time = fixed_timer
 	
 	var rate_buttons = get_tree().get_nodes_in_group("rate buttons")
+	
 	if synchronisation != Sync.TIMER:
 		var mat = sprite.get_material()
 		mat.set_shader_param("y", 0)
+	else:
+		var kill_area_anims = get_tree().get_nodes_in_group("kill area animations")
+		for k in kill_area_anims:
+			var div = k.get_animation(k.current_animation).length / fixed_timer
+			if div / int(div) != 1:
+				push_warning("A Kill area uses an animation which doesnt have a length multiple of the spawner's rate.")
 	
 	for rb in rate_buttons:
 		rb.visible = synchronisation == Sync.TIMER
@@ -135,20 +142,20 @@ func mult_timer_multiplier(m):
 
 func on_less_mouse_entered():
 	return
-	var mat = sprite.get_material()
-	mat.set_shader_param("hover_top", true)
+#	var mat = sprite.get_material()
+#	mat.set_shader_param("hover_top", true)
 
 func on_less_mouse_exited():
 	return
-	var mat = sprite.get_material()
-	mat.set_shader_param("hover_top", false)
+#	var mat = sprite.get_material()
+#	mat.set_shader_param("hover_top", false)
 
 func on_more_mouse_entered():
 	return
-	var mat = sprite.get_material()
-	mat.set_shader_param("hover_bottom", true)
+#	var mat = sprite.get_material()
+#	mat.set_shader_param("hover_bottom", true)
 
 func on_more_mouse_exited():
 	return
-	var mat = sprite.get_material()
-	mat.set_shader_param("hover_bottom", false)
+#	var mat = sprite.get_material()
+#	mat.set_shader_param("hover_bottom", false)

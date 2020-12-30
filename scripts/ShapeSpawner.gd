@@ -2,6 +2,8 @@ extends Node2D
 
 signal shape_created
 
+export (bool) var deletable_shapes = true
+
 var invisible_shapes = false
 
 onready var drawing = get_node("LineDrawing2D")
@@ -19,12 +21,13 @@ func _ready() -> void:
 func add_shape(shape):
 	shape_anchor.add_child(shape)
 	shape.set_invisible(invisible_shapes)
+	shape.removable = deletable_shapes
 	
-	for decay_area in get_tree().get_nodes_in_group("Decay areas"):
-		if decay_area.overlaps_body(shape):
-			print("shape is in decay area")
-		else:
-			print("shape is NOT in decay area")
+#	for decay_area in get_tree().get_nodes_in_group("Decay areas"):
+#		if decay_area.overlaps_body(shape):
+#			print("shape is in decay area")
+#		else:
+#			print("shape is NOT in decay area")
 		
 
 func _on_circle_created(position : Vector2, radius : float) -> void:
