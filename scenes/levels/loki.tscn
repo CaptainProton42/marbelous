@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/MarbleSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/GoalTrigger.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/KillArea frame.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Kill area collider but centered.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/KillArea.tscn" type="PackedScene" id=6]
+
+[node name="Level" instance=ExtResource( 1 )]
+invisible_shapes = true
+
+[node name="MarbleSpawner" parent="." index="2" instance=ExtResource( 2 )]
+position = Vector2( 522.201, 425.574 )
+start_velocity = Vector2( 0, 300 )
+fixed_timer = 2.0
+synchronisation = 1
+
+[node name="GoalTrigger" parent="." index="5" instance=ExtResource( 3 )]
+position = Vector2( 793.273, 463.908 )
+collectibles_needed = 0
+
+[node name="kill frame" parent="." index="6" instance=ExtResource( 4 )]
+
+[node name="KillArea" parent="." index="7" instance=ExtResource( 6 )]
+
+[node name="CollisionPolygon2D19" parent="KillArea" index="0" instance=ExtResource( 5 )]
+position = Vector2( 640, 720 )
+
+[node name="CollisionPolygon2D20" parent="KillArea" index="1" instance=ExtResource( 5 )]
+position = Vector2( 640, 640 )
+
+[node name="CollisionPolygon2D21" parent="KillArea" index="2" instance=ExtResource( 5 )]
+position = Vector2( 640, 560 )
+
+[node name="CollisionPolygon2D22" parent="KillArea" index="3" instance=ExtResource( 5 )]
+position = Vector2( 640, 480 )
+
+[node name="CollisionPolygon2D23" parent="KillArea" index="4" instance=ExtResource( 5 )]
+position = Vector2( 640, 400 )
+
+[node name="CollisionPolygon2D24" parent="KillArea" index="5" instance=ExtResource( 5 )]
+position = Vector2( 640, 320 )
+
+[node name="CollisionPolygon2D25" parent="KillArea" index="6" instance=ExtResource( 5 )]
+position = Vector2( 560, 320 )
+
+[node name="CollisionPolygon2D26" parent="KillArea" index="7" instance=ExtResource( 5 )]
+position = Vector2( 720, 320 )
+
+[node name="CollisionPolygon2D27" parent="KillArea" index="8" instance=ExtResource( 5 )]
+position = Vector2( 800, 320 )
+
+[node name="CollisionPolygon2D28" parent="KillArea" index="9" instance=ExtResource( 5 )]
+position = Vector2( 480, 320 )
+
+[node name="CollisionPolygon2D29" parent="KillArea" index="10" instance=ExtResource( 5 )]
+position = Vector2( 400, 320 )
+
+[node name="CollisionPolygon2D30" parent="KillArea" index="11" instance=ExtResource( 5 )]
+position = Vector2( 320, 320 )
+
+[node name="CollisionPolygon2D31" parent="KillArea" index="12" instance=ExtResource( 5 )]
+position = Vector2( 880, 320 )
+
+[node name="CollisionPolygon2D32" parent="KillArea" index="13" instance=ExtResource( 5 )]
+position = Vector2( 960, 320 )
+
+[node name="CollisionPolygon2D33" parent="KillArea" index="14" instance=ExtResource( 5 )]
+position = Vector2( 960, 320 )

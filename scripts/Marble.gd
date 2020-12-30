@@ -45,6 +45,9 @@ func revive() -> void:
 	_enter_state(State.SHOULD_RESET)
 
 func kill() -> void:
+	if _state == State.DEAD:
+		return
+	
 	_enter_state(State.DEAD)
 	if has_node("death"):
 		$death.play()

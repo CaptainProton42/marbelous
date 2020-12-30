@@ -13,7 +13,8 @@ const list = [
 	"lozenge",
 	"thrice",
 	"non delete",
-	"wipers"
+	"wipers",
+	"loki"
 #
 #	"Level verybasic",
 #	"Level0",

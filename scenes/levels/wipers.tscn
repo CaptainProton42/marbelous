@@ -37,3 +37,4 @@ synchronisation = 1
 
 [node name="GoalTrigger" parent="." index="7" instance=ExtResource( 7 )]
 position = Vector2( 1120, 160 )
+collectibles_needed = 0
