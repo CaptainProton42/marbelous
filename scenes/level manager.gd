@@ -2,11 +2,13 @@ extends Node2D
 
 export (PackedScene) var main_menu_scene
 export (PackedScene) var win_menu_scene
+export (PackedScene) var ingame_menu_scene
 
 var loaded_level
 var current_level_i = 0
 var main_menu
 var win_menu
+var ingame_menu
 
 func _ready():
 	go_to_main_menu()
@@ -37,10 +39,22 @@ func go_to_main_menu():
 	clear_level()
 
 func go_to_win_menu():
+	if ingame_menu:
+		ingame_menu.close()
+	
 	win_menu = win_menu_scene.instance()
 	add_child(win_menu)
 	win_menu.connect("go_to_main", self, "go_to_main_menu")
 	win_menu.connect("next_level", self, "load_next_level")
+
+func go_to_ingame_menu():
+	if ingame_menu:
+		return
+	
+	ingame_menu = ingame_menu_scene.instance()
+	add_child(ingame_menu)
+	ingame_menu.connect("go_to_main", self, "go_to_main_menu")
+	ingame_menu.connect("restart", loaded_level, "restart")
 
 func load_level(level):
 	clear_ui()
@@ -51,9 +65,9 @@ func load_level(level):
 	add_child(loaded_level)
 
 func _input(event):
-	if event is InputEventKey and event.is_pressed() and event.scancode == KEY_ESCAPE:
-		clear_level()
-		go_to_main_menu()
+	if event.is_action_pressed("ui_cancel"):
+		if win_menu == null and loaded_level != null:
+			go_to_ingame_menu()
 
 func on_level_cleared():
 	on_level_complete()

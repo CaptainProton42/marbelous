@@ -28,6 +28,12 @@ func _ready():
 	
 	$ShapeSpawner.invisible_shapes = invisible_shapes
 
+func restart():
+	clear_shapes()
+
+func clear_shapes():
+	$ShapeSpawner.clear_shapes()
+
 func _update_goal_progress_bar(g : Node):
 	var max_collected_count = 0
 	for m in get_marbles():
