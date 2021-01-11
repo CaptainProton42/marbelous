@@ -1,4 +1,5 @@
-extends Node
+extends Reference
+class_name ShortStraw
 
 # Algorithm parameters
 # Standard values are taken from the paper and shouldn't be modified unless you know what you're doing.
@@ -9,6 +10,9 @@ var line_threshold: float = 0.95
 
 # Run the algorithm
 func run(points: PoolVector2Array) -> PoolVector2Array:
+	if points.size() < 2:
+		return points
+
 	var s: float = _determine_resample_spacing(points)
 	var resampled: PoolVector2Array = _resample_points(points, s)
 	var corners: PoolIntArray = _get_corners(resampled)
@@ -76,7 +80,6 @@ func _determine_resample_spacing(points: PoolVector2Array) -> float:
 	return s
 
 func _resample_points(points: PoolVector2Array, s: float) -> PoolVector2Array:
-	# Resampling algorithm
 	var resampled: PoolVector2Array = [points[0]]
 
 	var d: float = 0.0 # Distance holder
@@ -160,6 +163,10 @@ func _halfway_corner(straws: PoolRealArray, a: int, b: int) -> int:
 func _is_line(points: PoolVector2Array, a: int, b: int) -> bool:
 	var distance: float = _distance(points, a, b)
 	var path_distance: float = _path_distance(points, a, b)
+
+	if path_distance == 0.0:
+		# something went wrong
+		return false
 
 	if distance / path_distance > line_threshold:
 		return true
