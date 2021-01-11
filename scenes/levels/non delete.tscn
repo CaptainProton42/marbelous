@@ -11,7 +11,7 @@
 [node name="Level" instance=ExtResource( 1 )]
 
 [node name="ShapeSpawner" parent="." index="2"]
-deletable_shapes = false
+removable_shapes = false
 
 [node name="kill frame" parent="." index="4" instance=ExtResource( 6 )]
 

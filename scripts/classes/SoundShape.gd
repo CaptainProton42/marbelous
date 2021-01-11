@@ -12,7 +12,7 @@ var pitch_quantization = true
 var semitones = [-12, -9, -7, -5, -2, 1, 3, 5, 7, 10, 12]
 var steps = []
 var pitch_scaling = 0.0001
-var removable
+var removable = true
 
 func get_area() -> float:
 	return 0.0
@@ -24,6 +24,7 @@ func semi_to_pitch(semitones):
 	return pow(2, semitones/12.0)
 
 func _ready():
+	connect("input_event", self, "_on_input_event")
 	$AudioStreamPlayer2D.stream = audio_stream
 	for s in semitones:
 		steps.append(semi_to_pitch(s))
@@ -87,3 +88,8 @@ func can_remove():
 
 func remove():
 	pass
+
+func _on_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_RIGHT and event.is_pressed():
+			remove()

@@ -19,20 +19,30 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Drawing.gd"
 }, {
+"base": "Reference",
+"class": "GeometryUtils",
+"language": "GDScript",
+"path": "res://scripts/classes/GeometryUtils.gd"
+}, {
 "base": "Node2D",
 "class": "Level",
 "language": "GDScript",
 "path": "res://scripts/Level.gd"
 }, {
-"base": "Node2D",
+"base": "Control",
 "class": "LineDrawing2D",
 "language": "GDScript",
 "path": "res://scripts/LineDrawing2D.gd"
 }, {
-"base": "RigidBody2D",
-"class": "Marble",
+"base": "Reference",
+"class": "Polydrawing",
 "language": "GDScript",
-"path": "res://scripts/Marble.gd"
+"path": "res://scripts/classes/Polydrawing.gd"
+}, {
+"base": "Reference",
+"class": "ShortStraw",
+"language": "GDScript",
+"path": "res://scripts/classes/ShortStraw.gd"
 }, {
 "base": "StaticBody2D",
 "class": "SoundShape",
@@ -42,9 +52,11 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Collectible": "",
 "Drawing": "",
+"GeometryUtils": "",
 "Level": "",
 "LineDrawing2D": "",
-"Marble": "",
+"Polydrawing": "",
+"ShortStraw": "",
 "SoundShape": ""
 }
 

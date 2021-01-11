@@ -11,6 +11,7 @@ var _polydrawing = Polydrawing.new()
 var _shortstraw = ShortStraw.new()
 
 export var invisible_shapes: bool = false
+export var removable_shapes: bool = true
 
 func _resample_points(points: PoolVector2Array, s: float) -> PoolVector2Array:
 	var resampled: PoolVector2Array = [points[0]]
@@ -67,6 +68,9 @@ func _on_polydrawing_finished() -> void:
 	var pathtime: PoolRealArray = _polydrawing.get_pathtimes()
 	var closed: bool = _polydrawing.is_closed()
 
+	if polyline.size() < 2:
+		return
+
 	var corners: PoolVector2Array = _shortstraw.run(polyline)
 
 	if closed:
@@ -82,12 +86,14 @@ func _on_polydrawing_finished() -> void:
 			var triangle_shape = triangle_shape_tscn.instance()
 			triangle_shape.set_corners(corners)
 			triangle_shape.set_invisible(invisible_shapes)
-			add_child(triangle_shape)
+			triangle_shape.removable = removable_shapes
+			$ShapeAnchor.add_child(triangle_shape)
 		elif corners.size() == 4:
 			var quad_shape = quad_shape_tscn.instance()
 			quad_shape.set_corners(corners)
 			quad_shape.set_invisible(invisible_shapes)
-			add_child(quad_shape)
+			quad_shape.removable = removable_shapes
+			$ShapeAnchor.add_child(quad_shape)
 		else:
 			var circle_shape = circle_shape_tscn.instance()
 			var circum: float = pathtime[pathtime.size() - 1] - pathtime[0]
@@ -96,7 +102,8 @@ func _on_polydrawing_finished() -> void:
 				circle_shape.set_radius(sqrt(area / PI))
 				circle_shape.position = _geo.get_polygon_center(polyline)
 				circle_shape.set_invisible(invisible_shapes)
-				add_child(circle_shape)
+				circle_shape.removable = removable_shapes
+				$ShapeAnchor.add_child(circle_shape)
 	else:
 		if abs(_turning_number(corners)) < 0.5:
 			var length = pathtime[pathtime.size() - 1] - pathtime[0]
@@ -106,7 +113,7 @@ func _on_polydrawing_finished() -> void:
 			var string = string_shape_tscn.instance()
 			string.set_polygon(stringpoly)
 			string.set_tautness(tautness)
-			add_child(string)
+			$ShapeAnchor.add_child(string)
 	
 	$MeshInstance2D.visible = false
 	$MeshInstance2D.mesh = null
@@ -143,3 +150,7 @@ func _on_polydrawing_updated() -> void:
 
 func _on_polydrawing_array_mesh_updated() -> void:
 	pass
+
+func clear_shapes() -> void:
+	for c in $ShapeAnchor.get_children():
+		c.destroy()

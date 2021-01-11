@@ -42,3 +42,9 @@ func remove():
 	$Polygon2D/AnimationPlayer.play("remove")
 	yield($Polygon2D/AnimationPlayer, "animation_finished")
 	queue_free()
+
+func destroy():
+	# TODO: "Destruction" animation
+	$Polygon2D/AnimationPlayer.play("remove")
+	yield($Polygon2D/AnimationPlayer, "animation_finished")
+	queue_free()

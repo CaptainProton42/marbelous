@@ -13,7 +13,6 @@
 [ext_resource path="res://scenes/main menu.gd" type="Script" id=11]
 [ext_resource path="res://scenes/level button.tscn" type="PackedScene" id=12]
 
-
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
 colors = PoolColorArray( 0, 0, 0, 1 )
@@ -21,52 +20,52 @@ colors = PoolColorArray( 0, 0, 0, 1 )
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.53, 0.2226, 0.381423, 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 1, 0, 0.533333, 1 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.921569, 0.168627, 0.564706, 1 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.47, 0.451827, 0.1974, 1 )
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 1, 0.55, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.956863, 0.580392, 0.133333, 1 )
 
-[sub_resource type="StyleBoxFlat" id=10]
+[sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.160784, 0.219608, 0.454902, 1 )
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.21, 0.578667, 1, 1 )
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.14902, 0.466667, 0.858824, 1 )
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 0.281283, 0.133, 0.35, 1 )
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.682353, 0.0862745, 0.8, 1 )
 
-[sub_resource type="StyleBoxFlat" id=15]
+[sub_resource type="StyleBoxFlat" id=14]
 bg_color = Color( 0.490196, 0.0588235, 0.572549, 1 )
 
-[sub_resource type="Gradient" id=16]
+[sub_resource type="Gradient" id=15]
 colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=17]
-gradient = SubResource( 16 )
+[sub_resource type="GradientTexture" id=16]
+gradient = SubResource( 15 )
 
-[sub_resource type="StyleBoxFlat" id=18]
+[sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 0.152941, 0.478431, 0.862745, 1 )
 
-[sub_resource type="StyleBoxFlat" id=19]
+[sub_resource type="StyleBoxFlat" id=18]
 bg_color = Color( 0.956863, 0.580392, 0.133333, 1 )
 
 [node name="main menu" type="Node2D"]
@@ -107,9 +106,9 @@ margin_top = 553.628
 margin_right = 823.0
 margin_bottom = 580.628
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
 text = "options"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -122,9 +121,9 @@ margin_top = 625.628
 margin_right = 823.0
 margin_bottom = 652.628
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 text = "quit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -146,9 +145,9 @@ __meta__ = {
 margin_right = 343.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 10 )
-custom_styles/pressed = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 text = "Sandbox"
 script = ExtResource( 5 )
 __meta__ = {
@@ -161,9 +160,9 @@ margin_left = 347.0
 margin_right = 690.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 10 )
-custom_styles/pressed = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 text = "FxShape"
 script = ExtResource( 5 )
 __meta__ = {
@@ -176,9 +175,9 @@ margin_left = 694.0
 margin_right = 1037.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 10 )
-custom_styles/pressed = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
 text = "Rate control"
 script = ExtResource( 5 )
 __meta__ = {
@@ -192,9 +191,9 @@ margin_top = 31.0
 margin_right = 343.0
 margin_bottom = 58.0
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 13 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/normal = SubResource( 15 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
 text = "how to"
 script = ExtResource( 5 )
 __meta__ = {
@@ -228,9 +227,9 @@ margin_top = 625.628
 margin_right = 823.0
 margin_bottom = 652.628
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 text = "back"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -263,7 +262,7 @@ __meta__ = {
 [node name="background" type="TextureRect" parent="ui/win"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 17 )
+texture = SubResource( 16 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ui/win"]
@@ -284,7 +283,7 @@ __meta__ = {
 margin_right = 444.0
 margin_bottom = 155.0
 size_flags_horizontal = 3
-custom_styles/normal = SubResource( 18 )
+custom_styles/normal = SubResource( 17 )
 text = "main menu"
 
 [node name="retry" type="Button" parent="ui/win/HBoxContainer"]
@@ -293,7 +292,7 @@ margin_left = 544.0
 margin_right = 989.0
 margin_bottom = 155.0
 size_flags_horizontal = 3
-custom_styles/normal = SubResource( 18 )
+custom_styles/normal = SubResource( 17 )
 text = "Retry"
 
 [node name="next" type="Button" parent="ui/win/HBoxContainer"]
@@ -301,7 +300,7 @@ margin_left = 544.0
 margin_right = 989.0
 margin_bottom = 155.0
 size_flags_horizontal = 3
-custom_styles/normal = SubResource( 19 )
+custom_styles/normal = SubResource( 18 )
 text = "Next level"
 
 [node name="complete" type="Label" parent="ui/win"]

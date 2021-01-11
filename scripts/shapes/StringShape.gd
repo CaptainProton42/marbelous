@@ -25,3 +25,6 @@ func _on_chain_updated():
 		collision_polygon[i] = vertices[i] + 3.0 * normal
 		collision_polygon[collision_polygon.size()-1-i] = vertices[i] - 3.0 * normal
 	$CollisionPolygon2D.polygon = collision_polygon
+
+func destroy(): # stub
+	queue_free()
