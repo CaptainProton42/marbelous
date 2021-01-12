@@ -167,3 +167,6 @@ func on_collectible_ownership_timeout(collectible):
 		emit_signal("collectible_lost", self, collectible)
 	else:
 		printerr("Marble should lose collectible (because of collectible ownership timeout), but it doesn't own it.")
+
+func get_class():
+	return "Marble"

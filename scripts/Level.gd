@@ -66,11 +66,11 @@ func _on_goal_triggered(goal : Node) -> void:
 		emit_signal("level_cleared")
 
 func _on_fxshape_body_entered(body):
-	if body is Marble:
+	if body.get_class() == "Marble":
 		body.route_bus("distortion")
 
 func _on_fxshape_body_exited(body):
-	if body is Marble:
+	if body.get_class() == "Marble":
 		body.route_bus()
 
 

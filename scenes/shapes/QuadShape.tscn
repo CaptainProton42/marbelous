@@ -145,6 +145,7 @@ tracks/1/keys = {
 }
 
 [node name="QuadShape" type="StaticBody2D"]
+input_pickable = true
 physics_material_override = ExtResource( 5 )
 script = ExtResource( 1 )
 audio_stream = ExtResource( 2 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ShapeSpawner.tscn" type="PackedScene" id=3]
@@ -20,6 +20,9 @@ glow_hdr_threshold = 0.9
 glow_hdr_scale = 1.36
 glow_bicubic_upscale = true
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 781.248, 413.114 )
+
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -33,6 +36,10 @@ centered = false
 environment = SubResource( 3 )
 
 [node name="ShapeSpawner" parent="." instance=ExtResource( 3 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShapeSpawner"]
+position = Vector2( 612.354, 364.867 )
+shape = SubResource( 4 )
 
 [node name="Control" type="Control" parent="."]
 visible = false

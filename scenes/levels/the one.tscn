@@ -1,12 +1,11 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://scenes/LineDrawing2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/ShapeSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/MarbleSpawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/GoalTrigger.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/CollectibleNote.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/Level.gd" type="Script" id=5]
 [ext_resource path="res://assets/textures/obstacle.png" type="Texture" id=6]
-[ext_resource path="res://scripts/ShapeSpawner.gd" type="Script" id=7]
 [ext_resource path="res://scenes/KillArea.tscn" type="PackedScene" id=8]
 [ext_resource path="res://mockups/image.png" type="Texture" id=9]
 
@@ -26,6 +25,9 @@ glow_blend_mode = 0
 glow_hdr_threshold = 0.92
 glow_bicubic_upscale = true
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 823.667, 545.404 )
+
 [node name="Level1" type="Node2D"]
 script = ExtResource( 5 )
 
@@ -42,14 +44,6 @@ centered = false
 [node name="MarbleSpawner" parent="." instance=ExtResource( 2 )]
 position = Vector2( 116.736, 72.96 )
 min_time_between_spawns = 3.0
-
-[node name="ShapeSpawner" type="Node2D" parent="."]
-script = ExtResource( 7 )
-
-[node name="LineDrawing2D" parent="ShapeSpawner" instance=ExtResource( 1 )]
-line_color = Color( 1, 1, 1, 1 )
-
-[node name="ShapeAnchor" type="Node2D" parent="ShapeSpawner"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
@@ -619,3 +613,9 @@ position = Vector2( 1104.62, 179.454 )
 [node name="GoalTrigger" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1100.26, 550.129 )
 collectibles_needed = 3
+
+[node name="ShapeSpawner" parent="." instance=ExtResource( 1 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShapeSpawner"]
+position = Vector2( 623.945, 385.13 )
+shape = SubResource( 4 )

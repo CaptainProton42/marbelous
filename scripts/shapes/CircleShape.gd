@@ -63,3 +63,9 @@ func remove():
 #		emit_sound(22.0)
 #		$Texture/AnimationPlayer.stop()
 #		$Texture/AnimationPlayer.play("just the sound")
+
+func destroy():
+	# TODO: "Destruction" animation
+	$Texture/AnimationPlayer.play("remove")
+	yield($Texture/AnimationPlayer, "animation_finished")
+	queue_free()
