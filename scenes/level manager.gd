@@ -47,9 +47,15 @@ func go_to_win_menu():
 	win_menu.connect("go_to_main", self, "go_to_main_menu")
 	win_menu.connect("next_level", self, "load_next_level")
 
+func toggle_ingame_menu():
+	if not ingame_menu:
+		go_to_ingame_menu()
+	else:
+		ingame_menu.close()
+
 func go_to_ingame_menu():
 	if ingame_menu:
-		return
+		ingame_menu.close()
 	
 	ingame_menu = ingame_menu_scene.instance()
 	add_child(ingame_menu)
@@ -67,7 +73,7 @@ func load_level(level):
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		if win_menu == null and loaded_level != null:
-			go_to_ingame_menu()
+			toggle_ingame_menu()
 
 func on_level_cleared():
 	on_level_complete()
