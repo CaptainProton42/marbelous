@@ -2,7 +2,7 @@ extends Area2D
 
 export var random_shape = true
 
-func _enter_tree():
+func _ready():
 	if random_shape:
 		randomize()
 		var p = generate_polygon()

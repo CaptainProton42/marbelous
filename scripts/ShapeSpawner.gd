@@ -12,6 +12,7 @@ var _shortstraw = ShortStraw.new()
 
 export var invisible_shapes: bool = false
 export var removable_shapes: bool = true
+export var string_shape_allowed = false
 
 func _resample_points(points: PoolVector2Array, s: float) -> PoolVector2Array:
 	var resampled: PoolVector2Array = [points[0]]
@@ -104,7 +105,7 @@ func _on_polydrawing_finished() -> void:
 				circle_shape.set_invisible(invisible_shapes)
 				circle_shape.removable = removable_shapes
 				$ShapeAnchor.add_child(circle_shape)
-	else:
+	elif string_shape_allowed:
 		if abs(_turning_number(corners)) < 0.5:
 			var length = pathtime[pathtime.size() - 1] - pathtime[0]
 			var dist = (corners[corners.size() - 1] - corners[0]).length()
