@@ -29,10 +29,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Level.gd"
 }, {
-"base": "Control",
+"base": "Node2D",
 "class": "LineDrawing2D",
 "language": "GDScript",
 "path": "res://scripts/LineDrawing2D.gd"
+}, {
+"base": "RigidBody2D",
+"class": "Marble",
+"language": "GDScript",
+"path": "res://scripts/Marble.gd"
 }, {
 "base": "Reference",
 "class": "Polydrawing",
@@ -55,6 +60,7 @@ _global_script_class_icons={
 "GeometryUtils": "",
 "Level": "",
 "LineDrawing2D": "",
+"Marble": "",
 "Polydrawing": "",
 "ShortStraw": "",
 "SoundShape": ""

@@ -16,13 +16,13 @@ start_velocity = Vector2( 0, 300 )
 fixed_timer = 2.0
 synchronisation = 1
 
-[node name="GoalTrigger" parent="." index="5" instance=ExtResource( 3 )]
+[node name="GoalTrigger" parent="." index="4" instance=ExtResource( 3 )]
 position = Vector2( 793.273, 463.908 )
 collectibles_needed = 0
 
-[node name="kill frame" parent="." index="6" instance=ExtResource( 4 )]
+[node name="kill frame" parent="." index="5" instance=ExtResource( 4 )]
 
-[node name="KillArea" parent="." index="7" instance=ExtResource( 6 )]
+[node name="KillArea" parent="." index="6" instance=ExtResource( 6 )]
 
 [node name="CollisionPolygon2D19" parent="KillArea" index="0" instance=ExtResource( 5 )]
 position = Vector2( 640, 720 )
@@ -68,3 +68,6 @@ position = Vector2( 960, 320 )
 
 [node name="CollisionPolygon2D33" parent="KillArea" index="14" instance=ExtResource( 5 )]
 position = Vector2( 960, 320 )
+
+[node name="ShapeSpawner" parent="." index="7"]
+invisible_shapes = true
