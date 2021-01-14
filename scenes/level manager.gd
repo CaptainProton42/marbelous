@@ -31,6 +31,8 @@ func clear_ui():
 		main_menu.queue_free()
 	if win_menu:
 		win_menu.queue_free()
+	if ingame_menu:
+		ingame_menu.close()
 
 func go_to_main_menu():
 	main_menu = main_menu_scene.instance()
